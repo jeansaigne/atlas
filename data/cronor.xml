@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<atlas version="1.0">
+  <header>
+      <name>CRONOR</name>
+    <type>Label</type>
+    <images>
+      <imagefile>CRONOR</imagefile>
+      <summaryimagefile>CRONOR</summaryimagefile>
+    </images>
+		<display>*.*.*. .*</display><!-- which labels to display, max=4 -->
+    </header>
+  <data>
+<label> : : : : </label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	: : : :	</label>
+<label>	 : :Aire II:Gray Matter:Droite	</label>
+<label>	 : :Aire II:Gray Matter:Gauche 	</label>
+<label>	 : :Aire III:Gray Matter:Droite 	</label>
+<label>	 : :Aire III:Gray Matter:Gauche 	</label>
+<label>	 : :Aire IVa:Gray Matter:Droite 	</label>
+<label>	 : :Aire IVa:Gray Matter:Gauche 	</label>
+<label>	 : :Aire IVb:Gray Matter:Droite 	</label>
+<label>	 : :Aire IVb:Gray Matter:Gauche 	</label>
+<label>	 : :Aire Ia:Gray Matter:	</label>
+<label>	 : :Aire Ib:Gray Matter:Droite	</label>
+<label>	 : :Aire Ib:Gray Matter:Gauche	</label>
+<label>	 : :Thyroide:Gray Matter:Lobe Droit	</label>
+<label>	 : :Thyroide:Gray Matter:Lobe Gauche 	</label>
+<label>	 : :Aire VIa:Gray Matter:	</label>
+<label>	 : :Aire VIb:Gray Matter:	</label>
+<label>	 : :Aire VIIa:Gray Matter:Droite	</label>
+<label>	 : :Aire VIIa:Gray Matter:Gauche 	</label>
+<label>	 : :Aire VIIb:Gray Matter:Droite	</label>
+<label>	 : :Aire VIIb:Gray Matter:Gauche	</label>
+<label>	 : :Aire VIII:Gray Matter:Droite	</label>
+<label>	 : :Aire VII:Gray Matter:Gauche 	</label>
+<label>	 : :Aire Vab:Gray Matter:Droite	</label>
+<label>	 : :Aire Vab:Gray Matter:Gauche	</label>
+<label>	 : :Aire Vc:Gray Matter:Droite	</label>
+<label>	 : :Aire Vc:Gray Matter:Gauche	</label>
+<label>	 : :Amygdale:Gray Matter:Droite	</label>
+<label>	 : :Amygdale:Gray Matter:Gauche	</label>
+<label>	 : :Arc Dentaire + gencive:Gray Matter:Droit	</label>
+<label>	 : :Arc Dentaire + gencive:Gray Matter:Gauche	</label>
+<label>	 : :Base langue:Gray Matter:Droit	</label>
+<label>	 : :Base langue:Gray Matter:Gauche	</label>
+<label>	 : :Cartilage thyroide:Gray Matter:	</label>
+<label>	 : :Cavum:Gray Matter:Droit	</label>
+<label>	 : :Cavum:Gray Matter:Gauche	</label>
+<label>	 : :Corde Vocale+bv:Gray Matter:Gauche	</label>
+<label>	 : :Corde vocale+bv:Gray Matter:Droit	</label>
+<label>	 : :Epiglote:Gray Matter:	</label>
+<label>	 : :Esp adipeux infratemp:Gray Matter:droit	</label>
+<label>	 : :Esp adipeux infratemp:Gray Matter:Gauche 	</label>
+<label>	 : :Esp adipeux buccal:Gray Matter:droit	</label>
+<label>	 : :Esp adipeux buccal:Gray Matter:Gauche	</label>
+<label>	 : :Esp carotidien:Gray Matter:Droit	</label>
+<label>	 : :Esp carotidien:Gray Matter:Gauche	</label>
+<label>	 : :Esp para pharyngé:Gray Matter:DGauche	</label>
+<label>	 : :Esp para pharyngé:Gray Matter:Droit 	</label>
+<label>	 : :Foramen oval:Gray Matter:Droit	</label>
+<label>	 : :Foramen oval:Gray Matter:Gauche	</label>
+<label>	 : :Fosse pterygo palatine:Gray Matter:Droite	</label>
+<label>	 : :Fosse pterygo palatine:Gray Matter:Gauche	</label>
+<label>	 : :Gencive inf: Gray Matter:Droite	</label>
+<label>	 : :Gencive inf:Gray Matter:Gauche	</label>
+<label>	 : :Ganglion Gasser:Gray Matter:Droit	</label>
+<label>	 : :Ganglion Gasser:Gray Matter:Gauche	</label>
+<label>	 : :Joue:Gray Matter:Droite 	</label>
+<label>	 : :Joue:Gray Matter:Gauche	</label>
+<label>	 : :Langue:Gray Matter:Droite	</label>
+<label>	 : :Langue:Gray Matter:Gauche	</label>
+<label>	 : :Loge HTE:Gray Matter:	</label>
+<label>	 : :Luette:Gray Matter:	</label>
+<label>	 : :Os hyoide:Gray Matter:	</label>
+<label>	 : :Palais dur:Gray Matter:Gauche	</label>
+<label>	 : :Palais dur:Gray Matter:Droit	</label>
+<label>	 : :Paroi pharyngée post:Gray Matter:Droite	</label>
+<label>	 : :Paroi pharyngée post:Gray Matter:Gauche	</label>
+<label>	 : :Pilier ant:Gray Matter:Droit	</label>
+<label>	 : :Pilier ant:Gray Matter:Gauche	</label>
+<label>	 : :Pilier post:Gray Matter:Droit	</label>
+<label>	 : :Pilier post:Gray Matter:Gauche	</label>
+<label>	 : :Plancher:Gray Matter:Droit	</label>
+<label>	 : :Plancher:Gray Matter:Gauche	</label>
+<label>	 : :Repli ary epiglottique:Gray Matter:Gauche	</label>
+<label>	 : :Repli ary epiglottique:Gray Matter:Droit	</label>
+<label>	 : :SAG:Gray Matter:Droit	</label>
+<label>	 : :SAG:Gray Matter:Gauche	</label>
+<label>	 : :Sinus caverneux:Gray Matter:Droit	</label>
+<label>	 : :Sinus caverneux:Gray Matter:Gauche	</label>
+<label>	 : :Sinus piriforme:Gray Matter:Droit	</label>
+<label>	 : :Sinus piriforme:Gray Matter:Gauche	</label>
+<label>	 : :Sinus sphenoidal:Gray Matter:Gauche	</label>
+<label>	 : :Sinus sphenoidal:Gray Matter:Droit	</label>
+<label>	 : :Trigone retro molaire:Gray Matter:Droit	</label>
+<label>	 : :Trigone retro molaire:Gray Matter:Gauche	</label>
+<label>	 : :Trois replis:Gray Matter:Droit	</label>
+<label>	 : :Trois replis:Gray Matter:Gauche	</label>
+<label>	 : :Vallecule:Gray Matter:Droite	</label>
+<label>	 : :Vallecule:Gray Matter:Gauche	</label>
+<label>	 : :Voile:Gray Matter:Droit	</label>
+<label>	 : :Voile:Gray Matter:Gauche	</label>
+<label>	 : :BRH Mandibule:Gray Matter:Droite	</label>
+<label>	 : :BRH Mandibule:Gray Matter:Gauche	</label>
+<label>	 : :BRV Mandibule:Gray Matter:Droite	</label>
+<label>	 : :BRV Mandibule:Gray Matter:Gauche	</label>
+<label>	 : :Base Langue+2cm:Gray Matter:Gauche	</label>
+<label>	 : :Base Langue+2cm:Gray Matter:Droite	</label>
+<label>	 : :M pterygoidien medial:Gray Matter:Droite	</label>
+<label>	 : :M pterygoidien medial:Gray Matter:Gauche	</label>
+  </data>
+</atlas>

@@ -1,0 +1,65 @@
+.block {
+	background: black;
+	color: white;
+	text-align: center;
+	border-radius: 26px;
+	/*max-width: 646px;*/
+	min-height: 190px;
+	margin: 50px;
+}
+
+.etage{
+	text-align: initial;
+}
+#resume {
+	width: 500px;
+	margin: 5px auto;
+}
+label{
+	cursor: pointer;
+}
+
+.hasToBeShow{
+	display: block;
+}
+
+.etage{
+	display: inline-block;
+	vertical-align: top;
+	height: 280px;
+	padding: 20px 20px;
+	border-right: solid 1px white;
+	border-radius: 30px;
+}
+.etage2{
+	display:none;
+}
+.etage3{
+	display: none;
+}
+
+#resume > table > tbody ul {
+	list-style-type: none;
+	text-align: left;
+}
+
+#resume > table > thead > tr th {
+	text-align: center;
+}
+
+#sendData {
+	text-align: center;
+}
+
+@media screen and (max-width: 660px) {
+    .block:first-of-type {
+    	background-color: transparent;
+    }
+    .etage {
+    	background-color: black;
+    	width: 100%;
+    }
+    #resume {
+    	width: 100%;
+    }
+}

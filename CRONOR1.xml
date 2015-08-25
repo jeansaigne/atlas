@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<atlas version="1.0">
+  <header>
+    <name>ORL CRONOR</name>
+    <type>Label</type>
+    <images> 
+      <imagefile>/test</imagefile>
+      <summaryimagefile>/test</summaryimagefile>
+    </images>
+  </header>
+  <data>
+    <label index="0" x="37" y="38" z="14">none</label>
+    <label index="1" x="222" y="244" z="94">Parotide</label>
+    <label index="2" x="222" y="244" z="100">zp</label>
+    <label index="3" x="259" y="267" z="94">Moelle</label>
+    <label index="4" x="266" y="223" z="37">Trachee</label>
+
+  </data>
+</atlas>

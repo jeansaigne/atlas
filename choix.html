@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    	<!-- iOS meta tags -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    	<link rel="stylesheet" type="text/css" href="papaya.css?version=0.6.4&build=566" />
+    	<script type="text/javascript" src="papaya.js?version=0.6.4&build=566"></script>
+        <script type="text/javascript" src="jcanvas.min.js"></script>
+        <script type="text/javascript" src="cronor.js"></script>		
+        <!--<script type="text/javascript" src="jquery-2.1.3.min.js"></script>-->
+        <script type="text/javascript" src="wz_jsgraphics.js"></script>
+        
+    	<title>ATLAS CRONOR</title>
+    
+    	<script type="text/javascript">
+                evenement();
+    	 	var params = [];
+    	</script>
+	</head>
+
+	<body>
+            <!-- <div id="panelControl">
+                <span onclick="test()" style="cursor: pointer;">Localisations</span>
+                <div id="localisation">
+                    <input type="checkbox" id="roi1" onclick="checkChange(0)"/><label for="roi1">ROI 1</label><br />
+                    <input type="checkbox" id="roi2" onclick="checkChange(1)"/><label for="roi2">ROI 2</label><br />
+                    <input type="checkbox" id="check1" onclick="javascript:toggleroi(this)" intervalID="null" unchecked>
+                    <input type="checkbox" id="check2" onclick="javascript:toggleroi2(this)" intervalID="null" unchecked>
+                </div>
+            </div> -->
+            
+<!--            <label for="check1">Roi1</label>
+                <input type="checkbox" id="check1" onclick="javascript:toggleroi(this)" intervalID="null" unchecked>
+            <label for="check2">Roi2</label>
+                <input type="checkbox" id="check2" onclick="javascript:toggleroi2(this)" intervalID="null" unchecked>-->
+		<div id="papayaDiv" class="papaya" data-params="params"></div>
+	</body>
+</html>
