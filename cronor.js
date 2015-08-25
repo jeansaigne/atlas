@@ -2,8 +2,12 @@
 var globalCoord;
 var globalCoordTmp;
 
+var href = "";
+var tableauDescription = [];
+if(typeof document.location.href.split('?')[1] !== "undefined"){
+    href = document.location.href.split('?')[1];
+}
 
-var href = document.location.href.split('?')[1];
 var tableauDescription = href.split('&');
 var tbldescription = href.split('&')[1];
 var i=0;
@@ -12,7 +16,7 @@ var phrase = "atlas/"+tableauDescription[0]+".nii.gz";
 
 var mystruct;
 var vol;
-var hrefROIRT = document.location.href.split('?')[1];
+var hrefROIRT = href;
 var tableauDescriptionROIRT = hrefROIRT.split('&');
 var ROIRT1 = tableauDescriptionROIRT[0];
 console.log(ROIRT1);
@@ -515,8 +519,12 @@ jQuery(document).ready(function() {
         false
     ];
 
+    var href = "";
+    var tableauDescription = [];
+    if(typeof document.location.href.split('?')[1] !== "undefined"){
+        href = document.location.href.split('?')[1];
+    }
 
-    var href = document.location.href.split('?')[1];
     var tableauDescription = href.split('&');
     var tbldescription = href.split('&')[1];
     console.log(tableauDescription);

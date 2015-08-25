@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Choix ROI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styleChoix.css"></link>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"></link>
+    </head>
+    <body>
+        <center><img src="logo.jpg"></center>
+        <div class="block form-horizontal">
+            <div id="localisation" class="etage">
+                <h4>Choix de zone</h4>
+                <div class='radio'>
+                    <label for="oropharynx">
+                        <input type="radio" name="loca" value="oropharynx" id="oropharynx" onclick="$('#selection5').addClass('hasToBeShow'); ($('#N0').is(':checked'))?($('#selection5').show()):(console.log('ok')); $('#amygdale').trigger('click');"/>
+                        Oropharynx
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="cavite-buccale">
+                        <input type="radio" name="loca" value="cavite-buccale" id="cavite-buccale" onclick="$('#selection5').removeClass('hasToBeShow'); $('#selection5').hide();"/>
+                        Cavite-buccale
+                    </label>
+                </div>
+				<div class="radio">
+                    <label for="Sein">
+                        <input type="radio" name="loca" value="Sein" id="Sein" onclick="$('#selection5').removeClass('hasToBeShow'); $('#selection5').hide();"/>
+                        Sein
+                    </label>
+                </div>
+                
+            </div>
+
+            <div id="details-oropharynx" class="etage etage2">
+                <h4>Choix de localisation</h4>
+                <div class="radio">
+                    <label for="amygdale" checked="true">
+                    <input class="inputEtage2" type="radio" name="details-oropharynx" value="amygdale" id="amygdale" onclick="$('#selection5').addClass('hasToBeShow'); ($('#N0').is(':checked'))?($('#selection5').show()):(console.log('ok'));"/>Amygdale</label>
+                </div>
+                <div class="radio">
+                    <label for="langue">
+                    <input class="inputEtage2" type="radio" name="details-oropharynx" value="langue" id="langue"  onclick="$('#selection5').removeClass('hasToBeShow'); $('#selection5').hide();"/>Base de langue</label> 
+                </div>
+                <div class="radio">
+                    <label for="pilierpost">
+                    <input class="inputEtage2" type="radio" name="details-oropharynx" value="pilierpost" id="pilierpost" onclick="$('#selection5').removeClass('hasToBeShow'); $('#selection5').hide();;"/>Pilier postérieur</label> 
+                </div>
+                <div class="radio">
+                    <label for="pilierant">
+                    <input class="inputEtage2" type="radio" name="details-oropharynx" value="pilierant" id="pilierant"  onclick="$('#selection5').removeClass('hasToBeShow'); $('#selection5').hide();;"/>Pilier antérieur</label> 
+                </div>
+                <div class="radio">
+                    <label for="voile">
+                    <input class="inputEtage2" type="radio" name="details-oropharynx" value="voile" id="voile"  onclick="$('#selection5').addClass('hasToBeShow'); ($('#N0').is(':checked'))?($('#selection5').show()):(console.log('ok'));"/>Voile</label> 
+                </div>
+                <div class="radio">
+                    <label for="vallecule">
+                    <input class="inputEtage2" type="radio" name="details-oropharynx" value="vallecule" id="vallecule"  onclick="$('#selection5').removeClass('hasToBeShow'); $('#selection5').hide();;"/>Vallécule</label> 
+                </div>
+                <div class="radio">
+                    <label for="ppp">
+                    <input class="inputEtage2" type="radio" name="details-oropharynx" value="ppp" id="ppp"  onclick="$('#selection5').removeClass('hasToBeShow'); $('#selection5').hide();;"/>Paroi pharyngée postérieure</label> 
+                </div>
+            </div>
+
+
+            <div id="details-cavite-buccale" class="etage etage2">
+                <h4>Choix de localisation</h4>
+                <div class="radio">
+                    <label for="test11"><input class="inputEtage2" type="radio" name="detail-cavite-buccale" value="test11" id="test11"/>detail cb 1</label>
+                </div>
+                <div class="radio">
+                    <label for="Test22"><input class="inputEtage2" type="radio" name="detail-cavite-buccale" value="Test12" id="Test22"/>detail cb 2</label> 
+                </div>
+            </div>
+			
+			<div id="details-Sein" class="etage etage2">
+                <h4>Choix de localisation</h4>
+                <div class="radio">
+                    <label for="paroit-gauche"><input  type="radio" class="inputEtage2Sein" name="detail-Sein" checked="true" value="paroit-gauche" id="paroit-gauche"/>Paroi gauche</label>
+                </div>
+                <div class="radio">
+                    <label for="sein-droit"><input  type="radio" class="inputEtage2Sein" name="detail-Sein" value="sein-droit" id="sein-droit"/>Sein droit</label> 
+                </div>
+            </div>
+
+            <div id="details-details-localisation" class="etage etage3">
+                <h4>Définition des details</h4>
+                <div id="selection1" class="selection">
+                    <div class="radio-inline">
+                        <label for="position1"><input type="radio" class="pos" name="position" value="G" checked="true" id="position1"/>Gauche</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="position2"><input type="radio" class="pos" name="position" value="D" id="position2"/>Droit</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="position3"><input type="radio" class="pos" name="position" value="B" id="position3"/>Bilatérale</label>
+                    </div>
+                </div>
+                <div id="selection2" class="selection">
+                    <div class="radio-inline">
+                        <label for="T1"><input type="radio" class="T" name="T" checked="true" value="T1" id="T1"/>T1</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="T2"><input type="radio" class="T" name="T" value="T2" id="T2"/>T2</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="T3"><input type="radio" class="T" name="T" value="T3T4" id="T3"/>T3</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="T4"><input type="radio" class="T" name="T" value="T3T4" id="T4"/>T4</label>
+                    </div>
+                </div>
+                <div id="selection3" class="selection">
+                    <div class="radio-inline">
+                        <label for="N0"><input type="radio" class="N" name="N" checked="true" value="N0" id="N0" onclick="$('#selection4').hide(); ($('#selection5').hasClass('hasToBeShow'))?($('#selection5').show()):(console.log('ok'));"/>N0</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="N1"><input type="radio" class="N" name="N" value="N" id="N1" onclick="$('#selection4').show(); $('#selection5').hide();"/>N1</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="N2"><input type="radio" class="N" name="N" value="N" id="N2" onclick="$('#selection4').show(); $('#selection5').hide();"/>N2</label>
+                    </div>
+                    <div class="radio-inline">
+                        <label for="N3"><input type="radio" class="N" name="N" value="N3" id="N3" onclick="$('#selection4').show(); $('#selection5').hide();"/>N3</label>
+                    </div>
+                </div>
+                <div id="selection4" style="display: none;">
+                    <span>Niveaux envahies :</span><br />
+                    <div class="checkbox-inline">
+                        <label for="autre1"><input  type="checkbox" id="autre1"/>niveau II</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label for="autre2"><input  type="checkbox" id="autre2"/>niveau III</label>
+                    </div>
+                    <br />
+                    <div class="checkbox-inline">
+                        <label for="autre3"><input  type="checkbox" id="autre3"/>niveau IV</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label for="autre4"><input  type="checkbox" id="autre4"/>niveau V</label>
+                    </div>
+                    <br />
+                    
+
+                </div>
+                <div id="selection5" style="display: none;">
+                    <div class="checkbox-inline">
+                        <label for="autreami"><input  type="checkbox" id="autreami"/>Atteinte du pillier antérieur</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div id="resume" class='block'>
+            <table class='table'>
+                <thead>
+                    <th>Zone</th>
+                    <th>Localisation</th>
+                    <th>Détails</th>
+                </thead>
+                <tr>
+                    <td id="resumeEtage1"></td>
+                    <td id="resumeEtage2"></td>
+                    <td>
+                        <ul>
+                            <li>position : <span id="resumeEtage31"></span></li>
+                            <li>T : <span id="resumeEtage32"></span></li>
+                            <li>N : <span id="resumeEtage33"></span></li>
+                            <li>Autre 1 : <span id="resumeEtage34"></span></li>
+                            <li>Autre 2 : <span id="resumeEtage35"></span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div> -->
+        <div id="sendData">
+            <button onclick="addDescription()">Ajouter cette description</button>
+            <a id="goPapaya" href="choix.html" class="btn btn-primary">Lancer la visulaisation</a>
+
+            <div>
+                <span>Description ajoutées :</span><br />
+                <span id="descriptions"></span>
+            </div>
+        </div>
+    </body>
+
+    
+    <script>
+       function goToPapaya(){
+
+       }
+
+	   $('#goPapaya').attr("href", $('#goPapaya').attr("href")+"?");
+	   
+       function addDescription(){
+            var description = "";
+            description = etage1+"_"+etage2+"_"+etage31+"_"+etage32+"_"+etage33+"_"+etage34+"_"+etage35+"_"+etage36+"_"+etage37+"_"+etage38+"&";
+
+            $('#descriptions').append(description);
+            $('#descriptions').append("<br />");
+            descriptions += description;
+            $('#goPapaya').attr("href", $('#goPapaya').attr("href")+description);
+       }
+
+       var descriptions = "";
+       var etage1 = "";
+       var etage2 = "";
+       var etage31 = "";
+        var etage32 = "";
+        var etage33 = "";
+        var etage34 = "";
+        var etage35 = "";
+        var etage36 = "";
+        var etage37 = "";
+        var etage38 = "";
+
+
+        $('#oropharynx').click(function(e){
+            console.log(e);
+            $('#details-oropharynx').css("display","inline-block");
+            $('#details-cavite-buccale').hide();
+			$('#details-Sein').hide();
+            //$('.etage3').hide();
+            $('#resumeEtage1').html("oropharynx");
+            $('#resumeEtage31').html("G");
+            $('#resumeEtage32').html("T1");
+            $('#resumeEtage33').html("N0");
+            $('#resumeEtage34').html("");
+            $('#resumeEtage35').html("");
+            etage1 = "oropharynx";
+            etage2 = "amygdale";
+            etage31 = "G";
+            etage32 = "T1";
+            etage33 = "N0";
+            etage34 = "false";
+            etage35 = "false";
+            etage36 = "false";
+            etage37 = "false";
+            etage38 = "false";
+            
+        });
+        $('#cavite-buccale').click(function(e){
+            console.log(e);
+            $('#details-oropharynx').hide(); 
+			$('#details-Sein').hide(); 
+            $('#details-cavite-buccale').css("display","inline-block");
+            //$('.etage3').hide();
+            $('#resumeEtage1').html("cavite-buccale");
+            $('#resumeEtage3').html("cavite-buccale");
+            etage1 = "cavite-buccale";
+        });
+		
+        $('#Sein').click(function(e){
+            console.log(e);
+			$('#details-oropharynx').hide(); 
+			$('#details-cavite-buccale').hide(); 
+			$('.etage3').hide(); 
+            $('#details-Sein').css("display","inline-block");
+            //$('.etage3').hide();
+            $('#resumeEtage1').html("Sein");
+            $('#resumeEtage3').html("Sein");
+			$('#descriptions').html("");
+			descriptions = "";
+            etage1 = "Sein";
+            etage2 = "paroit-gauche";
+            etage31 = "null";
+            etage32 = "null";
+            etage33 = "null";
+            etage34 = "null";
+            etage35 = "null";
+            etage36 = "null";
+            etage37 = "null";
+            etage38 = "null";
+        });		
+		
+        $('.inputEtage2').click(function(e){
+            $('#details-details-localisation').css("display","inline-block");
+            console.log(e);
+            $('#resumeEtage2').html(e.currentTarget.value); 
+            etage2 = e.currentTarget.value;
+        });
+		$('.inputEtage2Sein').click(function(e){
+            console.log(e);
+            $('#resumeEtage2').html(e.currentTarget.value); 
+            etage2 = e.currentTarget.value;
+        });
+        $('#autre1').click(function(e){
+            console.log(e);
+            $('#resumeEtage34').html(e.currentTarget.checked); 
+            etage34 = e.currentTarget.checked;
+        });
+        $('#autre2').click(function(e){
+            console.log(e);
+            $('#resumeEtage35').html(e.currentTarget.checked); 
+            etage35 = e.currentTarget.checked;
+        });
+        $('#autre3').click(function(e){
+            console.log(e);
+            $('#resumeEtage36').html(e.currentTarget.checked); 
+            etage36 = e.currentTarget.checked;
+        });
+        $('#autre4').click(function(e){
+            console.log(e);
+            $('#resumeEtage37').html(e.currentTarget.checked); 
+            etage37 = e.currentTarget.checked;
+        });
+        $('#autreami').click(function(e){
+            console.log(e);
+            $('#resumeEtage38').html(e.currentTarget.checked); 
+            etage38 = e.currentTarget.checked;
+        });
+        $('.T').click(function(e){
+            console.log(e);
+            $('#resumeEtage32').html(e.currentTarget.value); 
+            etage32 = e.currentTarget.value;
+        });
+        $('.N').click(function(e){
+            console.log(e);
+            $('#resumeEtage33').html(e.currentTarget.value); 
+            if(e.target.value == "N0"){
+                etage34 = 'false';
+                etage35 = 'false';
+                etage36 = 'false';
+                etage37 = 'false';
+                
+            }
+            etage33 = e.currentTarget.value;
+        });
+        $('.pos').click(function(e){
+            console.log(e);
+            $('#resumeEtage31').html(e.currentTarget.value); 
+            etage31 = e.currentTarget.value;
+        });
+    </script>
+</html>

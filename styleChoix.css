@@ -1,11 +1,23 @@
+#choix-localisation{
+	/*height: 200px;*/
+	/*width: 500px;*/
+	/*background-color: blue;*/
+	border: 1px solid;
+}
+#languette-choix{
+	text-align: center;
+	position: relative;
+	top: 20px;
+	cursor: pointer;
+}
 .block {
 	background: black;
 	color: white;
 	text-align: center;
 	border-radius: 26px;
 	/*max-width: 646px;*/
-	min-height: 190px;
-	margin: 50px;
+	/*min-height: 190px;*/
+	/*margin: 50px;*/
 }
 
 .etage{
