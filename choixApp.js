@@ -6,5 +6,5 @@ var choixApp = angular.module('choixApp', []);
 
 choixApp.controller('ChoixCtrl', function ($scope) {
     console.log("ChoixCtrl");
-    
+
 });
