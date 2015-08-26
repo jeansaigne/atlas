@@ -30,7 +30,9 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "D",
                                     name : "Droit"
                                 }
-                            ]
+                            ],
+                            name: 'Position',
+                            value: ''
                         },
                         {
                             items : [
@@ -50,7 +52,9 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "T3T4",
                                     name : "T4"
                                 }
-                            ]
+                            ],
+                            name: 'T',
+                            value:''
                         },
                         {
                             items : [
@@ -70,14 +74,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "N3",
                                     name : "N3",
                                 }
-                            ]
-                        },
-                        {
-                            items : [],
-                        },
-                        {
-                            items : [],
-                        },
+                            ],
+                            name: 'N',
+                            value: ''
+                        }
 
 
                     ]

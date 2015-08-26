@@ -50,18 +50,39 @@
                         </h3>
                     </div>
                 </md-toolbar>
-                <md-content layout="row">
+                <md-content>
                     <md-radio-group ng-model="zoneValue">
-                        <md-content ng-repeat="zone in tabZones" class="overflow-visible">
-                            <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">{{zone.name}}</md-radio-button>
-                            <md-content ng-if="zoneValue == zone.value" class="localisation" flex offset="">
-                                <md-subheader class="md-primary">Localisation</md-subheader>
+                        <md-subheader class="md-primary">
+                            Zone
+                        </md-subheader>
+                        <md-content layout="row" ng-repeat="zone in tabZones">
+                            <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">
+                                {{zone.name}}
+                            </md-radio-button>
+                            <md-content layout="column" ng-if="zoneValue == zone.value" flex>
+                                <md-subheader class="md-primary" ng-if="zone.localisations.length">
+                                    Localisation
+                                </md-subheader>
+                                <md-subheader class="md-warn" ng-if="!zone.localisations.length">
+                                    Aucune localisation
+                                </md-subheader>
                                 <md-radio-group ng-model="localisationValue">
-                                    <md-content ng-repeat="loca in zone.localisations">
-                                        <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">{{loca.name}}</md-radio-button>
-                                        <md-content ng-if="loca.value == localisationValue" ng-repeat="detail in loca.detail">
+                                    <md-content layout="row" ng-repeat="loca in zone.localisations">
+                                        <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">
+                                            {{loca.name}}
+                                        </md-radio-button>
+                                        <md-content layout="column"  ng-if="loca.value == localisationValue">
                                             <md-subheader class="md-primary">Details</md-subheader>
-
+                                            <md-content layout="row">
+                                                <md-radio-group ng-model="detail.value" ng-repeat="detail in loca.details">
+                                                    <md-subheader class="md-primary">
+                                                        {{detail.name}} : {{detail.value}}
+                                                    </md-subheader>
+                                                    <md-radio-button ng-repeat="item in detail.items" ng-value="item.value" aria-label="{{ item.name }}">
+                                                        {{item.name}}
+                                                    </md-radio-button>
+                                                </md-radio-group>
+                                            </md-content>
                                         </md-content>
                                     </md-content>
                                 </md-radio-group>
@@ -78,48 +99,8 @@
                         <!--<md-radio-button value="paroiPharyngeePosterieur">Paroi pharyngée postérieure</md-radio-button>-->
                     <!--</md-radio-group>-->
             </md-content>
-            <md-content layout="column"  layout-fill ng-if="data.zone">
-                <md-toolbar>
-                    <div class="md-toolbar-tools">
-                        <h3>
-                            <span>Localisation</span>
-                        </h3>
-                    </div>
-                </md-toolbar>
-                <md-radio-group ng-model="data.localisation"  ng-if="data.zone=='oropharynx'">
-                    <md-radio-button value="amygdale">Amygdale</md-radio-button>
-                    <md-radio-button value="baseDeLangue">Base de langue</md-radio-button>
-                    <md-radio-button value="pilierPosterieur">Pilier postérieur</md-radio-button>
-                    <md-radio-button value="pilierAnterieur">Pilier Antérieur</md-radio-button>
-                    <md-radio-button value="voile">Voile</md-radio-button>
-                    <md-radio-button value="vallecule">Valécule</md-radio-button>
-                    <md-radio-button value="paroiPharyngeePosterieur">Paroi pharyngée postérieure</md-radio-button>
-                </md-radio-group>
-                <md-radio-group ng-model="data.localisation"  ng-if="data.zone=='caviteBuccale'">
-                    <md-radio-button value="detailsCb1">Details cb 1</md-radio-button>
-                    <md-radio-button value="detailsCb2">Details cb 2</md-radio-button>
-                </md-radio-group>
-                <md-radio-group ng-model="data.localisation"  ng-if="data.zone=='sein'">
-                    <md-radio-button value="paroiGauche">Paroi gauche</md-radio-button>
-                    <md-radio-button value="seinDroit">Sein droit</md-radio-button>
-                </md-radio-group>
-            </md-content>
-            <md-content layout="column"  layout-fill ng-if="data.localisation">
-                <md-toolbar>
-                    <div class="md-toolbar-tools">
-                        <h3>
-                            <span>Détails</span>
-                        </h3>
-                    </div>
-                </md-toolbar>
-                <md-radio-group ng-model="data.details">
-                    <md-radio-button value="Apple" class="md-primary">Oropharynx</md-radio-button>
-                    <md-radio-button value="Banana"> Cavite-buccale </md-radio-button>
-                    <md-radio-button value="Mango">Sein</md-radio-button>
-                </md-radio-group>
-            </md-content>
         </md-content>
-            <md-content id="choix-localisation" >
+            <md-content id="choix-localisation" style="display:none;">
                 <div class="block form-horizontal">
                     <div id="localisation" class="etage">
                         <h4>Choix de zone</h4>
