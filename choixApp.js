@@ -100,11 +100,13 @@ choixApp.controller('ChoixCtrl', function ($scope) {
         {
             isChecked : false,
             value : "cavite-buccale",
+            name : "Cavité buccale",
             localisations : []
         },
         {
             isChecked : false,
             value : "Sein",
+            name : "Sein",
             localisations : []
         }
     ];

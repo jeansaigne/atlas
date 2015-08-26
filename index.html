@@ -10,7 +10,8 @@
     	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     	<link rel="stylesheet" type="text/css" href="papaya.css?version=0.6.4&build=566" />
-        <link rel="stylesheet" type="text/css" href="styleChoix.css"></link>
+        <link rel="stylesheet" href="css/angular-material.min.css"/>
+        <link rel="stylesheet" type="text/css" href="styleChoix.css"/>
     	<script type="text/javascript" src="papaya.js?version=0.6.4&build=566"></script>
         <script type="text/javascript" src="jcanvas.min.js"></script>
 
@@ -29,9 +30,9 @@
         <script type="text/javascript" src="wz_jsgraphics.js"></script>
 
         <script type="text/javascript" src="choixApp.js"></script>
-        
+
     	<title>ATLAS CRONOR</title>
-    
+
     	<script type="text/javascript">
                 evenement();
     	 	var params = [];
@@ -39,12 +40,85 @@
 	</head>
 
 	<body ng-app="choixApp">
-            <div id="choix-localisation" ng-controller="ChoixCtrl">
+        <md-content layout="row" layout-align="center start" id="choix-localisation" ng-controller="ChoixCtrl">
+            <md-content layout="column" layout-fill>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h3>
+                            <span>Choix de la localisation</span>
+                        </h3>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <md-radio-group ng-model="zoneValue">
+                        <md-content ng-repeat="zone in tabZones">
+                            <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">{{zone.name}}</md-radio-button>
+                            <md-content ng-if="zoneValue == zone.value">
+                                <md-subheader class="md-primary">Localisation</md-subheader>
+                                <md-radio-group ng-model="localisationValue">
+                                    <md-content ng-repeat="loca in zone.localisations">
+                                        <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">{{loca.name}}</md-radio-button>
+                                        <md-content ng-if="loca.value == localisationValue" ng-repeat="detail in loca.detail">
+                                            <md-subheader class="md-primary">Details</md-subheader>
 
-
-
-
-
+                                        </md-content>
+                                    </md-content>
+                                </md-radio-group>
+                            </md-content>
+                        </md-content>
+                    </md-radio-group>
+                    <!--<md-radio-group ng-model="data.localisation"  ng-if="data.zone=='oropharynx'">-->
+                        <!--<md-radio-button value="amygdale">Amygdale</md-radio-button>-->
+                        <!--<md-radio-button value="baseDeLangue">Base de langue</md-radio-button>-->
+                        <!--<md-radio-button value="pilierPosterieur">Pilier postérieur</md-radio-button>-->
+                        <!--<md-radio-button value="pilierAnterieur">Pilier Antérieur</md-radio-button>-->
+                        <!--<md-radio-button value="voile">Voile</md-radio-button>-->
+                        <!--<md-radio-button value="vallecule">Valécule</md-radio-button>-->
+                        <!--<md-radio-button value="paroiPharyngeePosterieur">Paroi pharyngée postérieure</md-radio-button>-->
+                    <!--</md-radio-group>-->
+            </md-content>
+            <md-content layout="column"  layout-fill ng-if="data.zone">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h3>
+                            <span>Localisation</span>
+                        </h3>
+                    </div>
+                </md-toolbar>
+                <md-radio-group ng-model="data.localisation"  ng-if="data.zone=='oropharynx'">
+                    <md-radio-button value="amygdale">Amygdale</md-radio-button>
+                    <md-radio-button value="baseDeLangue">Base de langue</md-radio-button>
+                    <md-radio-button value="pilierPosterieur">Pilier postérieur</md-radio-button>
+                    <md-radio-button value="pilierAnterieur">Pilier Antérieur</md-radio-button>
+                    <md-radio-button value="voile">Voile</md-radio-button>
+                    <md-radio-button value="vallecule">Valécule</md-radio-button>
+                    <md-radio-button value="paroiPharyngeePosterieur">Paroi pharyngée postérieure</md-radio-button>
+                </md-radio-group>
+                <md-radio-group ng-model="data.localisation"  ng-if="data.zone=='caviteBuccale'">
+                    <md-radio-button value="detailsCb1">Details cb 1</md-radio-button>
+                    <md-radio-button value="detailsCb2">Details cb 2</md-radio-button>
+                </md-radio-group>
+                <md-radio-group ng-model="data.localisation"  ng-if="data.zone=='sein'">
+                    <md-radio-button value="paroiGauche">Paroi gauche</md-radio-button>
+                    <md-radio-button value="seinDroit">Sein droit</md-radio-button>
+                </md-radio-group>
+            </md-content>
+            <md-content layout="column"  layout-fill ng-if="data.localisation">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h3>
+                            <span>Détails</span>
+                        </h3>
+                    </div>
+                </md-toolbar>
+                <md-radio-group ng-model="data.details">
+                    <md-radio-button value="Apple" class="md-primary">Oropharynx</md-radio-button>
+                    <md-radio-button value="Banana"> Cavite-buccale </md-radio-button>
+                    <md-radio-button value="Mango">Sein</md-radio-button>
+                </md-radio-group>
+            </md-content>
+        </md-content>
+            <md-content id="choix-localisation" >
                 <div class="block form-horizontal">
                     <div id="localisation" class="etage">
                         <h4>Choix de zone</h4>
@@ -179,8 +253,6 @@
                                 <label for="autre4"><input  type="checkbox" id="autre4"/>niveau V</label>
                             </div>
                             <br />
-
-
                         </div>
                         <div id="selection5" style="display: none;">
                             <div class="checkbox-inline">
@@ -188,31 +260,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <!-- <div id="resume" class='block'>
-                    <table class='table'>
-                        <thead>
-                            <th>Zone</th>
-                            <th>Localisation</th>
-                            <th>Détails</th>
-                        </thead>
-                        <tr>
-                            <td id="resumeEtage1"></td>
-                            <td id="resumeEtage2"></td>
-                            <td>
-                                <ul>
-                                    <li>position : <span id="resumeEtage31"></span></li>
-                                    <li>T : <span id="resumeEtage32"></span></li>
-                                    <li>N : <span id="resumeEtage33"></span></li>
-                                    <li>Autre 1 : <span id="resumeEtage34"></span></li>
-                                    <li>Autre 2 : <span id="resumeEtage35"></span></li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
-                </div> -->
                 <div id="sendData">
                     <button onclick="addDescription()">Ajouter cette description</button>
                     <a id="goPapaya" href="choix.html" class="btn btn-primary">Lancer la visulaisation</a>
@@ -222,17 +270,9 @@
                         <span id="descriptions"></span>
                     </div>
                 </div>
-
-
-
-
-
-
                 <button onclick="$('#File').trigger('click');$('#Open-oropharynx_voile_G_T3T4_N_true_false_false_false_false0').trigger('click');">Ajouter Open-oropharynx_voile_G_T3T4_N_true_false_false_false_false0</button>
-            </div>
-
-
-		<div id="papayaDiv" class="papaya" data-params="params"></div>
+            </md-content>
+            <!--<div id="papayaDiv" class="papaya" data-params="params"></div>-->
 	</body>
 
 
