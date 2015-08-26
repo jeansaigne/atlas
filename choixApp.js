@@ -11,24 +11,29 @@ choixApp.controller('ChoixCtrl', function ($scope) {
         {
             isChecked : true,
             value : "oropharynx",
+            name : "Oropharynx",
             localisations : [
                 {
                     isChecked : true,
                     value : "amygdale",
+                    name : "Amygdale",
                     details : [
                         {
                             items : [
                                 {
                                     isChecked : true,
                                     value : "G",
+                                    name : "Gauche"
                                 },
                                 {
                                     isChecked : false,
                                     value : "B",
+                                    name : "Bilatérale"
                                 },
                                 {
                                     isChecked : false,
                                     value : "D",
+                                    name : "Droit"
                                 }
                             ]
                         },
@@ -37,18 +42,22 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                 {
                                     isChecked : true,
                                     value : "T1",
+                                    name : "T1"
                                 },
                                 {
                                     isChecked : false,
                                     value : "T2",
+                                    name : "T2"
                                 },
                                 {
                                     isChecked : false,
                                     value : "T3T4",
+                                    name : "T3"
                                 },
                                 {
                                     isChecked : false,
                                     value : "T3T4",
+                                    name : "T4"
                                 }
                             ]
                         },
@@ -57,18 +66,22 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                 {
                                     isChecked : true,
                                     value : "N0",
+                                    name : "N0"
                                 },
                                 {
                                     isChecked : false,
                                     value : "N",
+                                    name : "N1"
                                 },
                                 {
                                     isChecked : false,
                                     value : "N",
+                                    name : "N2"
                                 },
                                 {
                                     isChecked : false,
                                     value : "N3",
+                                    name : "N3",
                                 }
                             ]
                         },
@@ -91,7 +104,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
         },
         {
             isChecked : false,
-            value : "cavite-buccale",
+            value : "Sein",
             localisations : []
         }
     ];
