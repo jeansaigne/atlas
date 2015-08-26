@@ -50,17 +50,28 @@
                     </div>
                 </md-toolbar>
                 <md-content>
+                    <md-subheader class="md-primary">Zone</md-subheader>
                     <md-radio-group ng-model="zoneValue">
                         <md-content ng-repeat="zone in tabZones">
                             <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">{{zone.name}}</md-radio-button>
-                            <md-content ng-if="zoneValue == zone.value">
-                                <md-subheader class="md-primary">Localisation</md-subheader>
-                                <md-radio-group ng-model="localisationValue">
-                                    <md-content ng-repeat="loca in zone.localisations">
-                                        <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">{{loca.name}}</md-radio-button>
-                                        <md-content ng-if="loca.value == localisationValue" ng-repeat="detail in loca.detail">
-                                            <md-subheader class="md-primary">Details</md-subheader>
 
+                            <md-content class="etage2 etage" ng-if="zoneValue == zone.value">
+                                <md-subheader style="margin-left: 50px;" class="md-primary">Localisation</md-subheader>
+                                <md-radio-group ng-model="localisationValue" style="margin-left: 50px;">
+                                    <md-content ng-repeat="loca in zone.localisations" style="margin-left: 50px;">
+                                        <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">{{loca.name}}</md-radio-button>
+
+                                        <md-content ng-if="localisationValue == loca.value" style="margin-left: 100px;">
+                                            <md-subheader class="md-primary">Details</md-subheader>
+                                                <md-content ng-repeat="detail in loca.details">
+                                                    <md-radio-group ng-model="detailGBD">
+                                                        <md-content ng-repeat="item in detail.items" style="margin-left: 50px;">
+                                                            <md-radio-button class="md-primary" ng-value="item.value" aria-label="{{ item.name }}">{{item.name}}</md-radio-button>
+                                                        </md-content>
+                                                    </md-radio-group>
+
+
+                                                </md-content>
                                         </md-content>
                                     </md-content>
                                 </md-radio-group>
