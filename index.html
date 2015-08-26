@@ -12,6 +12,7 @@
     	<link rel="stylesheet" type="text/css" href="papaya.css?version=0.6.4&build=566" />
         <link rel="stylesheet" href="css/angular-material.min.css"/>
         <link rel="stylesheet" type="text/css" href="styleChoix.css"/>
+        <link rel="stylesheet" type="text/css" href="css/formStyle.css"/>
     	<script type="text/javascript" src="papaya.js?version=0.6.4&build=566"></script>
         <script type="text/javascript" src="jcanvas.min.js"></script>
 
@@ -49,11 +50,11 @@
                         </h3>
                     </div>
                 </md-toolbar>
-                <md-content>
+                <md-content layout="row">
                     <md-radio-group ng-model="zoneValue">
-                        <md-content ng-repeat="zone in tabZones">
+                        <md-content ng-repeat="zone in tabZones" class="overflow-visible">
                             <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">{{zone.name}}</md-radio-button>
-                            <md-content ng-if="zoneValue == zone.value">
+                            <md-content ng-if="zoneValue == zone.value" class="localisation" flex offset="">
                                 <md-subheader class="md-primary">Localisation</md-subheader>
                                 <md-radio-group ng-model="localisationValue">
                                     <md-content ng-repeat="loca in zone.localisations">
