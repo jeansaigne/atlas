@@ -9,29 +9,24 @@ choixApp.controller('ChoixCtrl', function ($scope) {
 
     $scope.tabZones = [
         {
-            isChecked : true,
             value : "oropharynx",
             name : "Oropharynx",
             localisations : [
                 {
-                    isChecked : true,
                     value : "amygdale",
                     name : "Amygdale",
                     details : [
                         {
                             items : [
                                 {
-                                    isChecked : true,
                                     value : "G",
                                     name : "Gauche"
                                 },
                                 {
-                                    isChecked : false,
                                     value : "B",
                                     name : "Bilatérale"
                                 },
                                 {
-                                    isChecked : false,
                                     value : "D",
                                     name : "Droit"
                                 }
@@ -40,22 +35,18 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                         {
                             items : [
                                 {
-                                    isChecked : true,
                                     value : "T1",
                                     name : "T1"
                                 },
                                 {
-                                    isChecked : false,
                                     value : "T2",
                                     name : "T2"
                                 },
                                 {
-                                    isChecked : false,
                                     value : "T3T4",
                                     name : "T3"
                                 },
                                 {
-                                    isChecked : false,
                                     value : "T3T4",
                                     name : "T4"
                                 }
@@ -64,22 +55,438 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                         {
                             items : [
                                 {
-                                    isChecked : true,
                                     value : "N0",
                                     name : "N0"
                                 },
                                 {
-                                    isChecked : false,
                                     value : "N",
                                     name : "N1"
                                 },
                                 {
-                                    isChecked : false,
                                     value : "N",
                                     name : "N2"
                                 },
                                 {
-                                    isChecked : false,
+                                    value : "N3",
+                                    name : "N3",
+                                }
+                            ]
+                        },
+                        {
+                            items : [],
+                        },
+                        {
+                            items : [],
+                        },
+
+
+                    ]
+                },
+                {
+                    value : "langue",
+                    name : "Base de la langue",
+                    details : [
+                        {
+                            items : [
+                                {
+                                    value : "G",
+                                    name : "Gauche"
+                                },
+                                {
+                                    value : "B",
+                                    name : "Bilatérale"
+                                },
+                                {
+                                    value : "D",
+                                    name : "Droit"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "T1",
+                                    name : "T1"
+                                },
+                                {
+                                    value : "T2",
+                                    name : "T2"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T3"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T4"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "N0",
+                                    name : "N0"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N1"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N2"
+                                },
+                                {
+                                    value : "N3",
+                                    name : "N3",
+                                }
+                            ]
+                        },
+                        {
+                            items : [],
+                        },
+                        {
+                            items : [],
+                        },
+
+
+                    ]
+                },
+                {
+                    value : "pilierpost",
+                    name : "Pilier postérieur",
+                    details : [
+                        {
+                            items : [
+                                {
+                                    value : "G",
+                                    name : "Gauche"
+                                },
+                                {
+                                    value : "B",
+                                    name : "Bilatérale"
+                                },
+                                {
+                                    value : "D",
+                                    name : "Droit"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "T1",
+                                    name : "T1"
+                                },
+                                {
+                                    value : "T2",
+                                    name : "T2"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T3"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T4"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "N0",
+                                    name : "N0"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N1"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N2"
+                                },
+                                {
+                                    value : "N3",
+                                    name : "N3",
+                                }
+                            ]
+                        },
+                        {
+                            items : [],
+                        },
+                        {
+                            items : [],
+                        },
+
+
+                    ]
+                },
+                {
+                    value : "pilierant",
+                    name : "Pilier antérieur",
+                    details : [
+                        {
+                            items : [
+                                {
+                                    value : "G",
+                                    name : "Gauche"
+                                },
+                                {
+                                    value : "B",
+                                    name : "Bilatérale"
+                                },
+                                {
+                                    value : "D",
+                                    name : "Droit"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "T1",
+                                    name : "T1"
+                                },
+                                {
+                                    value : "T2",
+                                    name : "T2"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T3"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T4"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "N0",
+                                    name : "N0"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N1"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N2"
+                                },
+                                {
+                                    value : "N3",
+                                    name : "N3",
+                                }
+                            ]
+                        },
+                        {
+                            items : [],
+                        },
+                        {
+                            items : [],
+                        },
+
+
+                    ]
+                },
+                {
+                    value : "voile",
+                    name : "Voile",
+                    details : [
+                        {
+                            items : [
+                                {
+                                    value : "G",
+                                    name : "Gauche"
+                                },
+                                {
+                                    value : "B",
+                                    name : "Bilatérale"
+                                },
+                                {
+                                    value : "D",
+                                    name : "Droit"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "T1",
+                                    name : "T1"
+                                },
+                                {
+                                    value : "T2",
+                                    name : "T2"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T3"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T4"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "N0",
+                                    name : "N0"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N1"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N2"
+                                },
+                                {
+                                    value : "N3",
+                                    name : "N3",
+                                }
+                            ]
+                        },
+                        {
+                            items : [],
+                        },
+                        {
+                            items : [],
+                        },
+
+
+                    ]
+                },
+                {
+                    value : "vallecule",
+                    name : "Vallécule",
+                    details : [
+                        {
+                            items : [
+                                {
+                                    value : "G",
+                                    name : "Gauche"
+                                },
+                                {
+                                    value : "B",
+                                    name : "Bilatérale"
+                                },
+                                {
+                                    value : "D",
+                                    name : "Droit"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "T1",
+                                    name : "T1"
+                                },
+                                {
+                                    value : "T2",
+                                    name : "T2"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T3"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T4"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "N0",
+                                    name : "N0"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N1"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N2"
+                                },
+                                {
+                                    value : "N3",
+                                    name : "N3",
+                                }
+                            ]
+                        },
+                        {
+                            items : [],
+                        },
+                        {
+                            items : [],
+                        },
+
+
+                    ]
+                },
+                {
+                    value : "ppp",
+                    name : "Paroi pharyngée postérieur",
+                    details : [
+                        {
+                            items : [
+                                {
+                                    value : "G",
+                                    name : "Gauche"
+                                },
+                                {
+                                    value : "B",
+                                    name : "Bilatérale"
+                                },
+                                {
+                                    value : "D",
+                                    name : "Droit"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "T1",
+                                    name : "T1"
+                                },
+                                {
+                                    value : "T2",
+                                    name : "T2"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T3"
+                                },
+                                {
+                                    value : "T3T4",
+                                    name : "T4"
+                                }
+                            ]
+                        },
+                        {
+                            items : [
+                                {
+                                    value : "N0",
+                                    name : "N0"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N1"
+                                },
+                                {
+                                    value : "N",
+                                    name : "N2"
+                                },
+                                {
                                     value : "N3",
                                     name : "N3",
                                 }
@@ -95,16 +502,15 @@ choixApp.controller('ChoixCtrl', function ($scope) {
 
                     ]
                 }
+
             ]
         },
         {
-            isChecked : false,
             value : "cavite-buccale",
             name : "Cavité buccale",
             localisations : []
         },
         {
-            isChecked : false,
             value : "Sein",
             name : "Sein",
             localisations : []
