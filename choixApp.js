@@ -20,7 +20,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                             items : [
                                 {
                                     value : "G",
-                                    name : "Gauche"
+                                    name : "Gauche",
                                 },
                                 {
                                     value : "B",
@@ -32,7 +32,8 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                 }
                             ],
                             name: 'Position',
-                            value: ''
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -54,7 +55,8 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                 }
                             ],
                             name: 'T',
-                            value:''
+                            value:'',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -76,10 +78,48 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                 }
                             ],
                             name: 'N',
-                            value: ''
+                            value: '',
+                            isRadioButton: true,
+                        },
+                        {
+                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
+                            items : [
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire II envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire III envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire IV envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire V envahie",
+                                    ngIf : true,
+                                },
+                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire VI envahie",
+                                    ngIf : false,
+                                }
+                            ],
+                            name: 'Envahissement',
+                            value: '',
+                            isRadioButton: false,
                         }
-
-
                     ]
                 },
                 {
@@ -90,7 +130,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                             items : [
                                 {
                                     value : "G",
-                                    name : "Gauche"
+                                    name : "Gauche",
                                 },
                                 {
                                     value : "B",
@@ -100,7 +140,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "D",
                                     name : "Droit"
                                 }
-                            ]
+                            ],
+                            name: 'Position',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -120,7 +163,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "T3T4",
                                     name : "T4"
                                 }
-                            ]
+                            ],
+                            name: 'T',
+                            value:'',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -140,16 +186,43 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "N3",
                                     name : "N3",
                                 }
-                            ]
+                            ],
+                            name: 'N',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
-                            items : [],
-                        },
-                        {
-                            items : [],
-                        },
-
-
+                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
+                            items : [
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire II envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire III envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire IV envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire V envahie",
+                                    ngIf : true,
+                                }
+                            ],
+                            name: 'Envahissement',
+                            value: '',
+                            isRadioButton: false,
+                        }
                     ]
                 },
                 {
@@ -160,7 +233,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                             items : [
                                 {
                                     value : "G",
-                                    name : "Gauche"
+                                    name : "Gauche",
                                 },
                                 {
                                     value : "B",
@@ -170,7 +243,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "D",
                                     name : "Droit"
                                 }
-                            ]
+                            ],
+                            name: 'Position',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -190,7 +266,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "T3T4",
                                     name : "T4"
                                 }
-                            ]
+                            ],
+                            name: 'T',
+                            value:'',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -210,16 +289,50 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "N3",
                                     name : "N3",
                                 }
-                            ]
+                            ],
+                            name: 'N',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
-                            items : [],
-                        },
-                        {
-                            items : [],
-                        },
-
-
+                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
+                            items : [
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire II envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire III envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire IV envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire V envahie",
+                                    ngIf : true,
+                                },
+                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire VI envahie",
+                                    ngIf : false,
+                                }
+                            ],
+                            name: 'Envahissement',
+                            value: '',
+                            isRadioButton: false,
+                        }
                     ]
                 },
                 {
@@ -230,7 +343,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                             items : [
                                 {
                                     value : "G",
-                                    name : "Gauche"
+                                    name : "Gauche",
                                 },
                                 {
                                     value : "B",
@@ -240,7 +353,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "D",
                                     name : "Droit"
                                 }
-                            ]
+                            ],
+                            name: 'Position',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -260,7 +376,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "T3T4",
                                     name : "T4"
                                 }
-                            ]
+                            ],
+                            name: 'T',
+                            value:'',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -280,16 +399,50 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "N3",
                                     name : "N3",
                                 }
-                            ]
+                            ],
+                            name: 'N',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
-                            items : [],
-                        },
-                        {
-                            items : [],
-                        },
-
-
+                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
+                            items : [
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire II envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire III envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire IV envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire V envahie",
+                                    ngIf : true,
+                                },
+                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire VI envahie",
+                                    ngIf : false,
+                                }
+                            ],
+                            name: 'Envahissement',
+                            value: '',
+                            isRadioButton: false,
+                        }
                     ]
                 },
                 {
@@ -300,7 +453,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                             items : [
                                 {
                                     value : "G",
-                                    name : "Gauche"
+                                    name : "Gauche",
                                 },
                                 {
                                     value : "B",
@@ -310,7 +463,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "D",
                                     name : "Droit"
                                 }
-                            ]
+                            ],
+                            name: 'Position',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -330,7 +486,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "T3T4",
                                     name : "T4"
                                 }
-                            ]
+                            ],
+                            name: 'T',
+                            value:'',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -350,16 +509,50 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "N3",
                                     name : "N3",
                                 }
-                            ]
+                            ],
+                            name: 'N',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
-                            items : [],
-                        },
-                        {
-                            items : [],
-                        },
-
-
+                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
+                            items : [
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire II envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire III envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire IV envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire V envahie",
+                                    ngIf : true,
+                                },
+                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire VI envahie",
+                                    ngIf : false,
+                                }
+                            ],
+                            name: 'Envahissement',
+                            value: '',
+                            isRadioButton: false,
+                        }
                     ]
                 },
                 {
@@ -370,7 +563,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                             items : [
                                 {
                                     value : "G",
-                                    name : "Gauche"
+                                    name : "Gauche",
                                 },
                                 {
                                     value : "B",
@@ -380,7 +573,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "D",
                                     name : "Droit"
                                 }
-                            ]
+                            ],
+                            name: 'Position',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -400,7 +596,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "T3T4",
                                     name : "T4"
                                 }
-                            ]
+                            ],
+                            name: 'T',
+                            value:'',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -420,16 +619,43 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "N3",
                                     name : "N3",
                                 }
-                            ]
+                            ],
+                            name: 'N',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
-                            items : [],
-                        },
-                        {
-                            items : [],
-                        },
-
-
+                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
+                            items : [
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire II envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire III envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire IV envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire V envahie",
+                                    ngIf : true,
+                                }
+                            ],
+                            name: 'Envahissement',
+                            value: '',
+                            isRadioButton: false,
+                        }
                     ]
                 },
                 {
@@ -440,7 +666,7 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                             items : [
                                 {
                                     value : "G",
-                                    name : "Gauche"
+                                    name : "Gauche",
                                 },
                                 {
                                     value : "B",
@@ -450,7 +676,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "D",
                                     name : "Droit"
                                 }
-                            ]
+                            ],
+                            name: 'Position',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -470,7 +699,10 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "T3T4",
                                     name : "T4"
                                 }
-                            ]
+                            ],
+                            name: 'T',
+                            value:'',
+                            isRadioButton: true,
                         },
                         {
                             items : [
@@ -490,16 +722,43 @@ choixApp.controller('ChoixCtrl', function ($scope) {
                                     value : "N3",
                                     name : "N3",
                                 }
-                            ]
+                            ],
+                            name: 'N',
+                            value: '',
+                            isRadioButton: true,
                         },
                         {
-                            items : [],
-                        },
-                        {
-                            items : [],
-                        },
-
-
+                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
+                            items : [
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire II envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire III envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire IV envahie",
+                                    ngIf : true,
+                                },
+                                {
+                                    isChecked : false,
+                                    value : "false",
+                                    name : "Aire V envahie",
+                                    ngIf : true,
+                                }
+                            ],
+                            name: 'Envahissement',
+                            value: '',
+                            isRadioButton: false,
+                        }
                     ]
                 }
 
@@ -516,4 +775,9 @@ choixApp.controller('ChoixCtrl', function ($scope) {
             localisations : []
         }
     ];
+
+    $scope.controlAffichage = function(){
+        $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
+    };
+    $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = $scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value;
 });
