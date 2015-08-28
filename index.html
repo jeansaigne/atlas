@@ -115,9 +115,10 @@
             </md-content>
 
             <button ng-click="button()">TEST</button>
+
+            <md-button flex="50" class="md-primary md-raised" ng-click="showGridBottomSheet($event)">Show Bottomsheet</md-button>
         </md-content>
             <!--<div id="papayaDiv" class="papaya" data-params="params"></div>-->
-    </md-content>
 
 
 
@@ -276,7 +277,79 @@
     </script>
     <script type="text/ng-template" id="bottom-sheet-grid-template.html">
         <md-bottom-sheet class="md-grid">
+            <md-content layout="row" layout-align="center start" id="choix-localisation" ng-controller="ChoixCtrl">
+                <md-content layout="column" layout-fill>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools">
+                            <h3>
+                                <span>Choix de la localisation</span>
+                            </h3>
+                        </div>
+                    </md-toolbar>
 
+
+                    <!--Debut premier etage-->
+                    <md-content>
+                        <md-radio-group ng-model="zoneValue">
+                            <md-subheader class="md-primary">
+                                Zone
+                            </md-subheader>
+                            <md-content layout="row" ng-repeat="zone in tabZones">
+                                <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">
+                                    {{zone.name}}
+                                </md-radio-button>
+
+                                <!--Debut deuxieme etage            -->
+                                <md-content layout="column" ng-if="zoneValue == zone.value" flex>
+                                    <md-subheader class="md-primary" ><!--ng-if="zone.localisations.length"-->
+                                        Localisation
+                                    </md-subheader>
+                                    <!--<md-subheader class="md-warn" ng-if="!zone.localisations.length">-->
+                                    <!--Aucune localisation-->
+                                    <!--</md-subheader>-->
+                                    <md-radio-group ng-model="localisationValue">
+                                        <md-content layout="row" ng-repeat="loca in zone.localisations">
+                                            <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">
+                                                {{loca.name}}
+                                            </md-radio-button>
+
+                                            <!--Debut troisieme etage                        -->
+                                            <md-content layout="column"  ng-if="loca.value == localisationValue" layout-fill>
+                                                <md-subheader class="md-primary">Details</md-subheader>
+                                                <md-content layout="row">
+                                                    <md-content layout="column" ng-repeat="detail in loca.details" ng-if="detail.isRadioButton">
+                                                        <md-radio-group ng-model="detail.value" ng-change="controlAffichage()">
+                                                            <md-subheader class="md-primary">
+                                                                {{detail.name}} : {{detail.value}}
+                                                            </md-subheader>
+                                                            <md-radio-button ng-repeat="item in detail.items" ng-value="item.value" aria-label="{{ item.name }}">
+                                                                {{item.name}}
+                                                            </md-radio-button>
+
+                                                        </md-radio-group>
+                                                    </md-content>
+
+                                                    <md-content layout="column" ng-repeat="detail in loca.details" ng-if="!detail.isRadioButton">
+                                                        <md-subheader class="md-primary">
+                                                            {{detail.name}} : {{detail.value}}
+                                                        </md-subheader>
+                                                        <md-content ng-repeat="item in detail.items">
+                                                            <md-checkbox ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
+                                                                {{ item.name }}
+                                                            </md-checkbox>
+                                                        </md-content>
+                                                    </md-content>
+                                                </md-content>
+                                            </md-content>
+
+                                        </md-content>
+                                    </md-radio-group>
+                                </md-content>
+                            </md-content>
+                        </md-radio-group>
+                    </md-content>
+                </md-content>
+            </md-content>
         </md-bottom-sheet>
     </script>
 </html>
