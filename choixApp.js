@@ -4,7 +4,7 @@
 
 var choixApp = angular.module('choixApp', ['ngMaterial']);
 
-choixApp.controller('ChoixCtrl', function ($scope) {
+choixApp.controller('ChoixCtrl', function ($scope, $rootScope) {
     console.log("ChoixCtrl");
 
     $scope.tabZones = [
@@ -776,13 +776,46 @@ choixApp.controller('ChoixCtrl', function ($scope) {
         }
     ];
 
+    $scope.selectionedDescriptions = [];
+
+    $scope.isOkToAddDescription = true;
+    $scope.isOkToGoPapaya = true;
+
     $scope.controlAffichage = function(){
         $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
+        $scope.tabZones[0].localisations[2].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
+        $scope.tabZones[0].localisations[3].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
+        $scope.tabZones[0].localisations[4].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
     };
     $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = $scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value;
 
     $scope.button = function(){
         document.getElementById("File")["click"]();
         document.getElementById("Open-"+"oropharynx_voile_G_T3T4_N_true_false_false_false_false"+"0")["click"]();
+    };
+
+
+    $rootScope.testValue = {};
+
+    $scope.addDescription = function(){
+        console.log($scope.tabZones);
+        var result = "";
+        $scope.tabZones.forEach(function(zone){
+            if(zone.value == $scope.zoneValue){
+                result = $scope.zoneValue+"_"+zone.childValue+"_";
+                zone.localisations.forEach(function(loca){
+                    if(loca.value == zone.childValue){
+                        loca.details.forEach(function(detail){
+                            result = result + detail.value;
+                        });
+                    }
+                });
+            }
+
+        });
+        //console.log($rootScope);
+        //var result = $scope.zoneValue+"_"+$scope.locaValue+"_";
+        //console.log(result);
+        //$scope.selectionedDescriptions.push("Open-+"+result+"0");
     };
 });
