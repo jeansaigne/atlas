@@ -41,8 +41,10 @@
 	</head>
 
 	<body ng-app="choixApp">
-        <md-content ng-controller="buttonController">
-            <md-button flex="50" class="md-primary md-raised" ng-click="showGridBottomSheet($event)">Show as Grid</md-button>
+        <md-content ng-controller="buttonController" layout="column" layout-align="center center">
+            <md-button flex="50" class="md-primary md-raised" ng-click="showGridBottomSheet($event)">
+                Choix des localisations
+            </md-button>
             <div id="papayaDiv" class="papaya" data-params="params"></div>
         </md-content>
 
@@ -50,158 +52,12 @@
 
 	</body>
 
-
-    <script>
-//        <!--function goToPapaya(){-->
-//
-//        <!--}-->
-//
-//        <!--$('#goPapaya').attr("href", $('#goPapaya').attr("href")+"?");-->
-//
-//        <!--function addDescription(){-->
-//            <!--var description = "";-->
-//            <!--description = etage1+"_"+etage2+"_"+etage31+"_"+etage32+"_"+etage33+"_"+etage34+"_"+etage35+"_"+etage36+"_"+etage37+"_"+etage38+"&";-->
-//
-//            <!--$('#descriptions').append(description);-->
-//            <!--$('#descriptions').append("<br />");-->
-//            <!--descriptions += description;-->
-//            <!--$('#goPapaya').attr("href", $('#goPapaya').attr("href")+description);-->
-//        <!--}-->
-//
-//        <!--var descriptions = "";-->
-//        <!--var etage1 = "";-->
-//        <!--var etage2 = "";-->
-//        <!--var etage31 = "";-->
-//        <!--var etage32 = "";-->
-//        <!--var etage33 = "";-->
-//        <!--var etage34 = "";-->
-//        <!--var etage35 = "";-->
-//        <!--var etage36 = "";-->
-//        <!--var etage37 = "";-->
-//        <!--var etage38 = "";-->
-//
-//
-//        <!--$('#oropharynx').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#details-oropharynx').css("display","inline-block");-->
-//            <!--$('#details-cavite-buccale').hide();-->
-//            <!--$('#details-Sein').hide();-->
-//            <!--//$('.etage3').hide();-->
-//            <!--$('#resumeEtage1').html("oropharynx");-->
-//            <!--$('#resumeEtage31').html("G");-->
-//            <!--$('#resumeEtage32').html("T1");-->
-//            <!--$('#resumeEtage33').html("N0");-->
-//            <!--$('#resumeEtage34').html("");-->
-//            <!--$('#resumeEtage35').html("");-->
-//            <!--etage1 = "oropharynx";-->
-//            <!--etage2 = "amygdale";-->
-//            <!--etage31 = "G";-->
-//            <!--etage32 = "T1";-->
-//            <!--etage33 = "N0";-->
-//            <!--etage34 = "false";-->
-//            <!--etage35 = "false";-->
-//            <!--etage36 = "false";-->
-//            <!--etage37 = "false";-->
-//            <!--etage38 = "false";-->
-//
-//        <!--});-->
-//        <!--$('#cavite-buccale').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#details-oropharynx').hide();-->
-//            <!--$('#details-Sein').hide();-->
-//            <!--$('#details-cavite-buccale').css("display","inline-block");-->
-//            <!--//$('.etage3').hide();-->
-//            <!--$('#resumeEtage1').html("cavite-buccale");-->
-//            <!--$('#resumeEtage3').html("cavite-buccale");-->
-//            <!--etage1 = "cavite-buccale";-->
-//        <!--});-->
-//
-//        <!--$('#Sein').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#details-oropharynx').hide();-->
-//            <!--$('#details-cavite-buccale').hide();-->
-//            <!--$('.etage3').hide();-->
-//            <!--$('#details-Sein').css("display","inline-block");-->
-//            <!--//$('.etage3').hide();-->
-//            <!--$('#resumeEtage1').html("Sein");-->
-//            <!--$('#resumeEtage3').html("Sein");-->
-//            <!--$('#descriptions').html("");-->
-//            <!--descriptions = "";-->
-//            <!--etage1 = "Sein";-->
-//            <!--etage2 = "paroit-gauche";-->
-//            <!--etage31 = "null";-->
-//            <!--etage32 = "null";-->
-//            <!--etage33 = "null";-->
-//            <!--etage34 = "null";-->
-//            <!--etage35 = "null";-->
-//            <!--etage36 = "null";-->
-//            <!--etage37 = "null";-->
-//            <!--etage38 = "null";-->
-//        <!--});-->
-//
-//        <!--$('.inputEtage2').click(function(e){-->
-//            <!--$('#details-details-localisation').css("display","inline-block");-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage2').html(e.currentTarget.value);-->
-//            <!--etage2 = e.currentTarget.value;-->
-//        <!--});-->
-//        <!--$('.inputEtage2Sein').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage2').html(e.currentTarget.value);-->
-//            <!--etage2 = e.currentTarget.value;-->
-//        <!--});-->
-//        <!--$('#autre1').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage34').html(e.currentTarget.checked);-->
-//            <!--etage34 = e.currentTarget.checked;-->
-//        <!--});-->
-//        <!--$('#autre2').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage35').html(e.currentTarget.checked);-->
-//            <!--etage35 = e.currentTarget.checked;-->
-//        <!--});-->
-//        <!--$('#autre3').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage36').html(e.currentTarget.checked);-->
-//            <!--etage36 = e.currentTarget.checked;-->
-//        <!--});-->
-//        <!--$('#autre4').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage37').html(e.currentTarget.checked);-->
-//            <!--etage37 = e.currentTarget.checked;-->
-//        <!--});-->
-//        <!--$('#autreami').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage38').html(e.currentTarget.checked);-->
-//            <!--etage38 = e.currentTarget.checked;-->
-//        <!--});-->
-//        <!--$('.T').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage32').html(e.currentTarget.value);-->
-//            <!--etage32 = e.currentTarget.value;-->
-//        <!--});-->
-//        <!--$('.N').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage33').html(e.currentTarget.value);-->
-//            <!--if(e.target.value == "N0"){-->
-//                <!--etage34 = 'false';-->
-//                <!--etage35 = 'false';-->
-//                <!--etage36 = 'false';-->
-//                <!--etage37 = 'false';-->
-//
-//            <!--}-->
-//            <!--etage33 = e.currentTarget.value;-->
-//        <!--});-->
-//        <!--$('.pos').click(function(e){-->
-//            <!--console.log(e);-->
-//            <!--$('#resumeEtage31').html(e.currentTarget.value);-->
-//            <!--etage31 = e.currentTarget.value;-->
-//        <!--});-->
-
-    </script>
     <script type="text/ng-template" id="bottom-sheet-grid-template.html">
         <md-bottom-sheet class="md-grid">
             <md-content ng-controller="ChoixCtrl">
+
+
+
                 <md-content layout="column" layout-align="center start" id="choix-localisation">
 
                     <md-toolbar>
@@ -212,7 +68,20 @@
                         </div>
                     </md-toolbar>
 
-                    <md-content layout="row" layout-fill>
+                    <section layout="row" layout-sm="column" layout-fill layout-align="center center" layout-wrap>
+                        <md-button ng-click="addDescription()">Ajouter la description</md-button>
+                        <md-button ng-if="!isOkToAddDescription" ng-disabled="true" class="md-primary">Ajouter la description</md-button>
+                        <md-button class="md-primary">Lancer le chargement des images</md-button>
+                        <md-content ng-if="!isOkToGoPapaya">
+                            <md-button ng-disabled="true" class="md-primary">Lancer le chargement des images</md-button>
+                        </md-content>
+
+                        <md-button class="md-warn">Enlever toutes les images</md-button>
+                        <md-button ng-click="cancelChoice()">Annuler</md-button>
+                        <!--<div class="label">Flat</div>-->
+                    </section>
+
+                    <md-content layout="row" layout-fill layout-align="center start">
                         <!--Debut premier etage-->
                         <md-content>
                             <md-radio-group ng-model="zoneValue">
@@ -256,7 +125,6 @@
                                 <md-content layout="row" ng-repeat="loca in zone.localisations">
                                     <!--Debut troisieme etage                        -->
                                     <md-content layout="column"  ng-if="loca.value == zone.childValue" layout-fill>
-                                        <md-subheader class="md-primary">Details</md-subheader>
                                         <md-content layout="row">
                                             <md-content layout="column" ng-repeat="detail in loca.details" ng-if="detail.isRadioButton">
                                                 <md-radio-group ng-model="detail.value" ng-change="controlAffichage()">
@@ -274,11 +142,11 @@
                                                 <md-subheader class="md-primary">
                                                     {{detail.name}} : {{detail.value}}
                                                 </md-subheader>
-                                                <md-content ng-repeat="item in detail.items">
-                                                    <md-checkbox ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
+                                                <!--<md-content >-->
+                                                    <md-checkbox ng-repeat="item in detail.items" ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
                                                         {{ item.name }}
                                                     </md-checkbox>
-                                                </md-content>
+                                                <!--</md-content>-->
                                             </md-content>
                                         </md-content>
                                     </md-content>
@@ -286,27 +154,10 @@
                             </md-content>
                         </md-content>
 
-
-
-
                     </md-content>
 
-                    <button ng-click="button()">TEST</button>
                 </md-content>
-                <md-content>
-                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                        <md-button ng-click="addDescription()">Ajouter la description</md-button>
-                        <md-button ng-if="!isOkToAddDescription" ng-disabled="true" class="md-primary">Ajouter la description</md-button>
-                        <md-button class="md-primary">Lancer le chargement des images</md-button>
-                        <md-content ng-if="!isOkToGoPapaya">
-                            <md-button ng-disabled="true" class="md-primary">Lancer le chargement des images</md-button>
-                        </md-content>
 
-                        <md-button class="md-warn">Enlever toutes les images</md-button>
-                        <md-button ng-click="cancelChoice()">Annuler</md-button>
-                        <!--<div class="label">Flat</div>-->
-                    </section>
-                </md-content>
 
                 <!--<md-content ng-repeat="zone in tabZones"  ng-if="zoneValue == zone.value">-->
                 <!--<md-radio-group ng-model="zone.childValue" ng-change="console.log(testValue)">-->
