@@ -58,7 +58,7 @@
                         <md-subheader class="md-primary">
                             Zone
                         </md-subheader>
-                        <md-content layout="row" ng-repeat="zone in tabZones" layout-align="start start">
+                        <md-content layout="row" ng-repeat="zone in tabZones">
                             <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">
                                 {{zone.name}}
                             </md-radio-button>
@@ -105,15 +105,24 @@
                                                 </md-content>
                                             </md-content>
                                         </md-content>
+
                                     </md-content>
                                 </md-radio-group>
                             </md-content>
                         </md-content>
                     </md-radio-group>
+                </md-content>
             </md-content>
+
+            <button ng-click="button()">TEST</button>
         </md-content>
             <!--<div id="papayaDiv" class="papaya" data-params="params"></div>-->
     </md-content>
+
+
+
+        <div id="papayaDiv" class="papaya" data-params="params"></div>
+
 	</body>
 
 
