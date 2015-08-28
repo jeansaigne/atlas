@@ -58,7 +58,7 @@
                         <md-subheader class="md-primary">
                             Zone
                         </md-subheader>
-                        <md-content layout="row" ng-repeat="zone in tabZones">
+                        <md-content layout="row" ng-repeat="zone in tabZones" layout-align="start start">
                             <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">
                                 {{zone.name}}
                             </md-radio-button>
@@ -78,33 +78,32 @@
                                         </md-radio-button>
 
                 <!--Debut troisieme etage                        -->
-                                        <md-content layout="column"  ng-if="loca.value == localisationValue">
-
+                                        <md-content layout="column"  ng-if="loca.value == localisationValue" layout-fill>
                                             <md-subheader class="md-primary">Details</md-subheader>
-                                            <md-content layout="column" ng-repeat="detail in loca.details" ng-if="detail.isRadioButton">
-                                                <md-radio-group ng-model="detail.value" ng-change="controlAffichage()">
+                                            <md-content layout="row">
+                                                <md-content layout="column" ng-repeat="detail in loca.details" ng-if="detail.isRadioButton">
+                                                    <md-radio-group ng-model="detail.value" ng-change="controlAffichage()">
+                                                        <md-subheader class="md-primary">
+                                                            {{detail.name}} : {{detail.value}}
+                                                        </md-subheader>
+                                                        <md-radio-button ng-repeat="item in detail.items" ng-value="item.value" aria-label="{{ item.name }}">
+                                                            {{item.name}}
+                                                        </md-radio-button>
+
+                                                    </md-radio-group>
+                                                </md-content>
+
+                                                <md-content layout="column" ng-repeat="detail in loca.details" ng-if="!detail.isRadioButton">
                                                     <md-subheader class="md-primary">
                                                         {{detail.name}} : {{detail.value}}
                                                     </md-subheader>
-                                                    <md-radio-button ng-repeat="item in detail.items" ng-value="item.value" aria-label="{{ item.name }}">
-                                                        {{item.name}}
-                                                    </md-radio-button>
-
-                                                </md-radio-group>
-                                            </md-content>
-
-                                            <md-content layout="row" ng-repeat="detail in loca.details" ng-if="!detail.isRadioButton">
-                                                <md-subheader class="md-primary">
-                                                    {{detail.name}} : {{detail.value}}
-                                                </md-subheader>
-                                                <md-content ng-repeat="item in detail.items">
-                                                    <md-checkbox ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
-                                                        {{ item.name }}
-                                                    </md-checkbox>
+                                                    <md-content ng-repeat="item in detail.items">
+                                                        <md-checkbox ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
+                                                            {{ item.name }}
+                                                        </md-checkbox>
+                                                    </md-content>
                                                 </md-content>
                                             </md-content>
-
-
                                         </md-content>
                                     </md-content>
                                 </md-radio-group>
@@ -114,6 +113,7 @@
             </md-content>
         </md-content>
             <!--<div id="papayaDiv" class="papaya" data-params="params"></div>-->
+    </md-content>
 	</body>
 
 
@@ -265,5 +265,9 @@
 //        <!--});-->
 
     </script>
+    <script type="text/ng-template" id="bottom-sheet-grid-template.html">
+        <md-bottom-sheet class="md-grid">
 
+        </md-bottom-sheet>
+    </script>
 </html>
