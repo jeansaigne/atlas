@@ -4,7 +4,7 @@
 
 var choixApp = angular.module('choixApp', ['ngMaterial']);
 
-choixApp.controller('ChoixCtrl', function ($scope) {
+choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
     console.log("ChoixCtrl");
 
     $scope.tabZones = [
@@ -793,19 +793,8 @@ choixApp.controller('ChoixCtrl', function ($scope) {
         document.getElementById("File")["click"]();
         document.getElementById("Open-"+"oropharynx_voile_G_T3T4_N_true_false_false_false_false"+"0")["click"]();
     };
-    $scope.showGridBottomSheet = function($event) {
-        $scope.alert = '';
-        $mdBottomSheet.show({
-            templateUrl: 'bottom-sheet-grid-template.html',
-            controller: 'ChoixCtrl',
-            targetEvent: $event
-        }).then(function(clickedItem) {
-            $scope.alert = clickedItem.name + ' clicked!';
-        });
-    };
 
 
-    $rootScope.testValue = {};
 
     $scope.addDescription = function(){
         console.log($scope.tabZones);
@@ -827,5 +816,22 @@ choixApp.controller('ChoixCtrl', function ($scope) {
         //var result = $scope.zoneValue+"_"+$scope.locaValue+"_";
         //console.log(result);
         //$scope.selectionedDescriptions.push("Open-+"+result+"0");
+    };
+
+    $scope.cancelChoice = function() {
+        $mdBottomSheet.hide();
+    };
+
+}).controller('buttonController', function($scope, $mdBottomSheet, $timeout) {
+
+    $scope.showGridBottomSheet = function($event) {
+        $scope.alert = '';
+        $mdBottomSheet.show({
+            templateUrl: 'bottom-sheet-grid-template.html',
+            controller: 'ChoixCtrl',
+            targetEvent: $event
+        }).then(function(clickedItem) {
+            $scope.alert = clickedItem.name + ' clicked!';
+        });
     };
 });
