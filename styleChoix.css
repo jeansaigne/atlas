@@ -9,6 +9,11 @@
 	margin-left: 100px;
 }
 
+#papayaContainer0{
+	max-width: 100%;
+	max-height: calc(100% - 50px);
+}
+
 
 /*#choix-localisation{*/
 	/*/!*height: 200px;*!/*/

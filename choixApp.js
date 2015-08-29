@@ -794,7 +794,7 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
         document.getElementById("Open-"+"oropharynx_voile_G_T3T4_N_true_false_false_false_false"+"0")["click"]();
     };
 
-
+    $scope.tabResult = [];
 
     $scope.addDescription = function(){
         console.log($scope.tabZones);
@@ -804,8 +804,11 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                 result = $scope.zoneValue+"_"+zone.childValue+"_";
                 zone.localisations.forEach(function(loca){
                     if(loca.value == zone.childValue){
-                        loca.details.forEach(function(detail){
-                            result = result + detail.value;
+                        loca.details.forEach(function(detail, $index){
+                            result = result + detail.value+"_";
+                            if($index == 3){
+                                result = result + detail.items[0].isChecked+"_"+detail.items[1].isChecked+"_"+detail.items[2].isChecked+"_"+detail.items[3].isChecked+"_"+detail.items[4].isChecked
+                            }
                         });
                     }
                 });
@@ -814,7 +817,7 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
         });
         //console.log($rootScope);
         //var result = $scope.zoneValue+"_"+$scope.locaValue+"_";
-        //console.log(result);
+        console.log(result);
         //$scope.selectionedDescriptions.push("Open-+"+result+"0");
     };
 
