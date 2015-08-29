@@ -145,8 +145,8 @@
                                                     <md-subheader class="md-primary">
                                                         {{detail.name}} : {{detail.value}}
                                                     </md-subheader>
-                                                    <p ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail">
-                                                        {{det.value}}
+                                                    <p layout-align="center center" ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail">
+                                                        <span>{{det.value}}</span>
                                                     </p>
 
                                                     <md-radio-button ng-repeat="item in detail.items" ng-value="item.value" aria-label="{{ item.name }}">
@@ -161,7 +161,7 @@
                                                 <md-subheader class="md-primary">
                                                     {{detail.name}} : {{detail.value}}
                                                 </md-subheader>
-                                                <p ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail">
+                                                <p ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail" layout-align="start start">
                                                     {{det.value}}
                                                     <md-button class="md-icon-button md-accent" aria-label="Favorite">
                                                         <span class="mdi mdi-delete"></span>
