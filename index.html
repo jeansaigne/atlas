@@ -72,7 +72,7 @@
                     <section layout="row" layout-sm="column" layout-fill layout-align="center center" layout-wrap>
                         <md-button ng-click="addDescription()">Ajouter la description</md-button>
                         <md-button ng-if="!isOkToAddDescription" ng-disabled="true" class="md-primary">Ajouter la description</md-button>
-                        <md-button class="md-primary">Lancer le chargement des images</md-button>
+                        <md-button class="md-primary" ng-click="goToPapaya()">Lancer le chargement des images</md-button>
                         <md-content ng-if="!isOkToGoPapaya">
                             <md-button ng-disabled="true" class="md-primary">Lancer le chargement des images</md-button>
                         </md-content>
@@ -109,7 +109,7 @@
 
                         <md-content layout="row" ng-repeat="zone in tabZones">
                             <!--Debut deuxieme etage            -->
-                            <md-content layout="column" ng-if="zoneValue == zone.value" flex>
+                            <md-content layout="column" ng-if="zoneValue == zone.value">
 
 
                                 <!--<md-subheader class="md-warn" ng-if="!zone.localisations.length">-->
@@ -120,7 +120,9 @@
                                     <md-subheader class="md-primary" ><!--ng-if="zone.localisations.length"-->
                                         Localisation
                                     </md-subheader>
-                                    <p class="md-body-2 pDetail" ng-repeat="result in tabResults">{{result.loca}}</p>
+                                    <p class="md-body-2 pDetail" ng-repeat="result in tabResults">
+                                        {{result.loca}}
+                                    </p>
                                     <md-content layout="row" ng-repeat="loca in zone.localisations">
                                         <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">
                                             {{loca.name}}
@@ -133,9 +135,9 @@
 
 
 
-                        <md-content layout="row" ng-repeat="zone in tabZones">
+                        <md-content layout="row" ng-repeat="zone in tabZones" flex="45" ng-if="zoneValue == zone.value">
                             <!--Debut deuxieme etage            -->
-                            <md-content layout="column" ng-if="zoneValue == zone.value" flex>
+                            <md-content layout="column"  flex>
                                 <md-content layout="row" ng-repeat="loca in zone.localisations">
                                     <!--Debut troisieme etage                        -->
                                     <md-content layout="column"  ng-if="loca.value == zone.childValue" layout-fill>
@@ -163,7 +165,7 @@
                                                 </md-subheader>
                                                 <p ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail" layout-align="start start">
                                                     <span>{{det.value}}</span>
-                                                    <md-button class="md-icon-button md-accent" aria-label="Favorite" ng-click="deleteDescription(det, $index)">
+                                                    <md-button class="md-icon-button md-accent" aria-label="Favorite" ng-click="deleteDescription(det, $index)" style="float: right;">
                                                         <span style="transform: scale(1.5);" ng-class="md-36" class="mdi mdi-delete"></span>
                                                     </md-button>
                                                 </p>

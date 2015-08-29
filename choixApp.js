@@ -789,11 +789,24 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
     };
     $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = $scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value;
 
-    $scope.button = function(){
-        document.getElementById("File")["click"]();
-        document.getElementById("Open-"+"oropharynx_voile_G_T3T4_N_true_false_false_false_false"+"0")["click"]();
+    $scope.goToPapaya = function(){
+        $scope.tabResults.forEach(function(description, index){
+            document.getElementById("File")["click"]();
+            if(document.getElementById("Open-"+description.resultString+"0") != null){
+
+                console.log("Open-"+description.resultString+"0");
+                console.log(document.getElementById("Open-"+description.resultString+"0"));
+                document.getElementById("Open-"+description.resultString+"0")["click"]();
+            }else{
+                document.getElementById("File")["click"]();
+                alert("La description n°"+index+" n'existe pas");
+            }
+
+        });
+        $scope.cancelChoice();
     };
 
+//  Open-oropharynx_amygdale_G_T1_N0__true_false_false_false_false0
     $scope.tabResults = [];
     $scope.tabResultDetails = [];
     $scope.tabResultPosition = [];
@@ -811,10 +824,10 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                 zone.localisations.forEach(function(loca){
                     if(loca.value == zone.childValue){
                         loca.details.forEach(function(detail, $index){
-                            result = result + detail.value+"_";
+
                             if($index == 3){
                                 result = result + detail.items[0].isChecked+"_"+detail.items[1].isChecked+"_"+detail.items[2].isChecked+"_"+detail.items[3].isChecked+"_";
-                                if(detail.items[4].ngIf){
+                                if((detail.items.length>4) && (detail.items[4].ngIf)){
                                     result = result + detail.items[4].isChecked;
                                 }else{
                                     result = result + "false";
@@ -823,24 +836,10 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     resultString : result,
                                     zone : zone.name,
                                     loca : loca.name,
-                                    details : [
-                                        {
-                                            value : loca.details[0].value
-                                        },
-                                        {
-                                            value : loca.details[1].value,
-                                        },
-                                        {
-                                            value : loca.details[2].value,
-                                        }
-                                    ],
-                                    envahissement : loca.details[3].items[0].isChecked+" "+loca.details[3].items[1].isChecked+" "+loca.details[3].items[2].isChecked+" "+loca.details[3].items[3].isChecked
                                 };
                                 $scope.tabResults.push(resultObject);
                                 console.log($scope.tabResults);
-                                //$scope.tabResultPosition.push(loca.details[0].value);
-                                //$scope.tabResultT.push(loca.details[1].value);
-                                //$scope.tabResultN.push(loca.details[2].value);
+
                                 $scope.tabResultDetails.push(
                                     {
                                         name : loca.details[0].name,
@@ -860,6 +859,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     }
                                 );
 
+                            }else{
+                                result = result + detail.value+"_";
                             }
                         });
                     }
@@ -875,7 +876,10 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
 
     $scope.deleteDescription = function(det, index){
         console.log(det);
-        console.log(index);
+        var realIndex = ((index)/4).toFixed(0) -1;
+        console.log(realIndex);
+        $scope.tabResults.splice(realIndex, 1);
+        $scope.tabResultDetails.splice(index-3, 4);
     };
 
     $scope.cancelChoice = function() {
@@ -888,10 +892,9 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
         $scope.alert = '';
         $mdBottomSheet.show({
             templateUrl: 'bottom-sheet-grid-template.html',
-            controller: 'ChoixCtrl',
             targetEvent: $event
         }).then(function(clickedItem) {
-            $scope.alert = clickedItem.name + ' clicked!';
+            //$scope.alert = clickedItem.name + ' clicked!';
         });
     };
 });
