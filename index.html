@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/angular-material.min.css"/>
         <link rel="stylesheet" type="text/css" href="styleChoix.css"/>
         <link rel="stylesheet" type="text/css" href="css/formStyle.css"/>
+        <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
     	<script type="text/javascript" src="papaya.js?version=0.6.4&build=566"></script>
         <script type="text/javascript" src="jcanvas.min.js"></script>
 
@@ -81,6 +82,9 @@
                         <!--<div class="label">Flat</div>-->
                     </section>
 
+
+
+
                     <md-content layout="row" layout-fill layout-align="center start">
                         <!--Debut premier etage-->
                         <md-content>
@@ -88,6 +92,11 @@
                                 <md-subheader class="md-primary">
                                     Zone
                                 </md-subheader>
+                                <p class="md-body-2 pDetail" ng-repeat="result in tabResults">
+                                    {{result.zone}}
+                                </p>
+
+
                                 <md-content layout="row" ng-repeat="zone in tabZones">
                                     <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">
                                         {{zone.name}}
@@ -101,19 +110,24 @@
                         <md-content layout="row" ng-repeat="zone in tabZones">
                             <!--Debut deuxieme etage            -->
                             <md-content layout="column" ng-if="zoneValue == zone.value" flex>
-                                <md-subheader class="md-primary" ><!--ng-if="zone.localisations.length"-->
-                                    Localisation
-                                </md-subheader>
+
+
                                 <!--<md-subheader class="md-warn" ng-if="!zone.localisations.length">-->
                                 <!--Aucune localisation-->
                                 <!--</md-subheader>-->
+                                <!--<md-content>-->
                                 <md-radio-group ng-model="zone.childValue">
+                                    <md-subheader class="md-primary" ><!--ng-if="zone.localisations.length"-->
+                                        Localisation
+                                    </md-subheader>
+                                    <p class="md-body-2 pDetail" ng-repeat="result in tabResults">{{result.loca}}</p>
                                     <md-content layout="row" ng-repeat="loca in zone.localisations">
                                         <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">
                                             {{loca.name}}
                                         </md-radio-button>
                                     </md-content>
                                 </md-radio-group>
+                                <!--</md-content>-->
                             </md-content>
                         </md-content>
 
@@ -131,6 +145,10 @@
                                                     <md-subheader class="md-primary">
                                                         {{detail.name}} : {{detail.value}}
                                                     </md-subheader>
+                                                    <p ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail">
+                                                        {{det.value}}
+                                                    </p>
+
                                                     <md-radio-button ng-repeat="item in detail.items" ng-value="item.value" aria-label="{{ item.name }}">
                                                         {{item.name}}
                                                     </md-radio-button>
@@ -139,13 +157,21 @@
                                             </md-content>
 
                                             <md-content layout="column" ng-repeat="detail in loca.details" ng-if="!detail.isRadioButton">
+                                                <md-radio-group>
                                                 <md-subheader class="md-primary">
                                                     {{detail.name}} : {{detail.value}}
                                                 </md-subheader>
+                                                <p ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail">
+                                                    {{det.value}}
+                                                    <md-button class="md-icon-button md-accent" aria-label="Favorite">
+                                                        <span class="mdi mdi-delete"></span>
+                                                    </md-button>
+                                                </p>
                                                 <!--<md-content >-->
                                                     <md-checkbox ng-repeat="item in detail.items" ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
                                                         {{ item.name }}
                                                     </md-checkbox>
+                                                </md-radio-group>
                                                 <!--</md-content>-->
                                             </md-content>
                                         </md-content>

@@ -794,11 +794,17 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
         document.getElementById("Open-"+"oropharynx_voile_G_T3T4_N_true_false_false_false_false"+"0")["click"]();
     };
 
-    $scope.tabResult = [];
+    $scope.tabResults = [];
+    $scope.tabResultDetails = [];
+    $scope.tabResultPosition = [];
+    $scope.tabResultT = [];
+    $scope.tabResultN = [];
+
 
     $scope.addDescription = function(){
-        console.log($scope.tabZones);
+        //console.log($scope.tabZones);
         var result = "";
+        var resultObject = {};
         $scope.tabZones.forEach(function(zone){
             if(zone.value == $scope.zoneValue){
                 result = $scope.zoneValue+"_"+zone.childValue+"_";
@@ -807,7 +813,53 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                         loca.details.forEach(function(detail, $index){
                             result = result + detail.value+"_";
                             if($index == 3){
-                                result = result + detail.items[0].isChecked+"_"+detail.items[1].isChecked+"_"+detail.items[2].isChecked+"_"+detail.items[3].isChecked+"_"+detail.items[4].isChecked
+                                result = result + detail.items[0].isChecked+"_"+detail.items[1].isChecked+"_"+detail.items[2].isChecked+"_"+detail.items[3].isChecked+"_";
+                                if(detail.items[4].ngIf){
+                                    result = result + detail.items[4].isChecked;
+                                }else{
+                                    result = result + "false";
+                                }
+                                resultObject = {
+                                    resultString : result,
+                                    zone : zone.name,
+                                    loca : loca.name,
+                                    details : [
+                                        {
+                                            value : loca.details[0].value
+                                        },
+                                        {
+                                            value : loca.details[1].value,
+                                        },
+                                        {
+                                            value : loca.details[2].value,
+                                        }
+                                    ],
+                                    envahissement : loca.details[3].items[0].isChecked+" "+loca.details[3].items[1].isChecked+" "+loca.details[3].items[2].isChecked+" "+loca.details[3].items[3].isChecked
+                                };
+                                $scope.tabResults.push(resultObject);
+                                console.log($scope.tabResults);
+                                //$scope.tabResultPosition.push(loca.details[0].value);
+                                //$scope.tabResultT.push(loca.details[1].value);
+                                //$scope.tabResultN.push(loca.details[2].value);
+                                $scope.tabResultDetails.push(
+                                    {
+                                        name : loca.details[0].name,
+                                        value : loca.details[0].value
+                                    },
+                                    {
+                                        name : loca.details[1].name,
+                                        value : loca.details[1].value
+                                    },
+                                    {
+                                        name : loca.details[2].name,
+                                        value : loca.details[2].value
+                                    },
+                                    {
+                                        name : loca.details[3].name,
+                                        value : loca.details[3].items[0].isChecked+" "+loca.details[3].items[1].isChecked+" "+loca.details[3].items[2].isChecked+" "+loca.details[3].items[3].isChecked+" "
+                                    }
+                                );
+
                             }
                         });
                     }

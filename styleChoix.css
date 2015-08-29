@@ -13,6 +13,11 @@
 	max-width: 100%;
 	max-height: calc(100% - 50px);
 }
+.pDetail{
+	height: 48px !important;
+	margin-top: 14px !important;
+	margin-bottom: 14px !important;
+}
 
 
 /*#choix-localisation{*/
