@@ -873,6 +873,11 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
         //$scope.selectionedDescriptions.push("Open-+"+result+"0");
     };
 
+    $scope.deleteDescription = function(det, index){
+        console.log(det);
+        console.log(index);
+    };
+
     $scope.cancelChoice = function() {
         $mdBottomSheet.hide();
     };
