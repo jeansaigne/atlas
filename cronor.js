@@ -511,8 +511,12 @@ jQuery(document).ready(function() {
     params["ATLAS.nii.gz"] = {"min": -100, "max": 300};
     params["radiological"] = true;
     params["showOrientation"] = true;
-    params["showControlBar"] = true;
+    //params["showControlBar"] = true;
     params["expandable"] = true;
+    params["oropharynx_amygdale_G_T1_N0_false_false_false_false_false.nii.gz"] = {"min": 1, "max": 105, "lut": "Spectrum", "alpha": 0.5};
+
+
+
 
     var ROIsSelected = [
         true,
@@ -535,7 +539,7 @@ jQuery(document).ready(function() {
         var phrase = "atlas/"+tableauDescription[i]+".nii.gz";
         var phrase2 = tableauDescription[i]+".nii.gz";
         params["images"].push(phrase);
-        params[phrase2] = {"min": 1, "max": 98, "lut": "Spectrum", "alpha": 0.5};
+        params[phrase2] = {"min": 1, "max": 105, "lut": "Spectrum", "alpha": 0.5};
     }
 
     //Test pour désactiver l'affichage d'une ROI individuellement sur la label map

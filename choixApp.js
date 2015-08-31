@@ -4,7 +4,7 @@
 
 var choixApp = angular.module('choixApp', ['ngMaterial']);
 
-choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
+choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $rootScope) {
     console.log("ChoixCtrl");
 
     $scope.tabZones = [
@@ -31,8 +31,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "Droit"
                                 }
                             ],
-                            name: 'Position',
-                            value: '',
+                            name: 'Position', value: 'G',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -54,8 +54,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "T4"
                                 }
                             ],
-                            name: 'T',
-                            value:'',
+                            name: 'T', value: 'T1',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -77,8 +77,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "N3",
                                 }
                             ],
-                            name: 'N',
-                            value: '',
+                            name: 'N', value: 'N0',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -112,12 +112,12 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                 {
                                     isChecked : false,
                                     value : "false",
-                                    name : "Aire VI",
-                                    ngIf : false,
+                                    name : "Pilier antérieur",
+                                    ngIf : true
                                 }
                             ],
                             name: 'Envahissement',
-                            value: '',
+                            
                             isRadioButton: false,
                         }
                     ]
@@ -141,8 +141,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "Droit"
                                 }
                             ],
-                            name: 'Position',
-                            value: '',
+                            name: 'Position', value: 'G',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -164,8 +164,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "T4"
                                 }
                             ],
-                            name: 'T',
-                            value:'',
+                            name: 'T', value: 'T1',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -187,8 +187,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "N3",
                                 }
                             ],
-                            name: 'N',
-                            value: '',
+                            name: 'N', value: 'N0',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -220,7 +220,7 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                 }
                             ],
                             name: 'Envahissement',
-                            value: '',
+                            
                             isRadioButton: false,
                         }
                     ]
@@ -244,8 +244,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "Droit"
                                 }
                             ],
-                            name: 'Position',
-                            value: '',
+                            name: 'Position', value: 'G',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -267,8 +267,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "T4"
                                 }
                             ],
-                            name: 'T',
-                            value:'',
+                            name: 'T', value: 'T1',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -290,8 +290,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "N3",
                                 }
                             ],
-                            name: 'N',
-                            value: '',
+                            name: 'N', value: 'N0',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -325,12 +325,12 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                 {
                                     isChecked : false,
                                     value : "false",
-                                    name : "Aire VI",
+                                    name : "Pilier antérieur",
                                     ngIf : false,
                                 }
                             ],
                             name: 'Envahissement',
-                            value: '',
+                            
                             isRadioButton: false,
                         }
                     ]
@@ -354,8 +354,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "Droit"
                                 }
                             ],
-                            name: 'Position',
-                            value: '',
+                            name: 'Position', value: 'G',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -377,8 +377,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "T4"
                                 }
                             ],
-                            name: 'T',
-                            value:'',
+                            name: 'T', value: 'T1',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -400,8 +400,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "N3",
                                 }
                             ],
-                            name: 'N',
-                            value: '',
+                            name: 'N', value: 'N0',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -435,12 +435,12 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                 {
                                     isChecked : false,
                                     value : "false",
-                                    name : "Aire VI",
+                                    name : "Pilier antérieur",
                                     ngIf : false,
                                 }
                             ],
                             name: 'Envahissement',
-                            value: '',
+                            
                             isRadioButton: false,
                         }
                     ]
@@ -464,8 +464,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "Droit"
                                 }
                             ],
-                            name: 'Position',
-                            value: '',
+                            name: 'Position', value: 'G',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -487,8 +487,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "T4"
                                 }
                             ],
-                            name: 'T',
-                            value:'',
+                            name: 'T', value: 'T1',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -510,8 +510,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "N3",
                                 }
                             ],
-                            name: 'N',
-                            value: '',
+                            name: 'N', value: 'N0',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -545,12 +545,12 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                 {
                                     isChecked : false,
                                     value : "false",
-                                    name : "Aire VI",
+                                    name : "Pilier antérieur",
                                     ngIf : false,
                                 }
                             ],
                             name: 'Envahissement',
-                            value: '',
+                            
                             isRadioButton: false,
                         }
                     ]
@@ -574,8 +574,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "Droit"
                                 }
                             ],
-                            name: 'Position',
-                            value: '',
+                            name: 'Position', value: 'G',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -597,8 +597,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "T4"
                                 }
                             ],
-                            name: 'T',
-                            value:'',
+                            name: 'T', value: 'T1',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -620,8 +620,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "N3",
                                 }
                             ],
-                            name: 'N',
-                            value: '',
+                            name: 'N', value: 'N0',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -653,7 +653,7 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                 }
                             ],
                             name: 'Envahissement',
-                            value: '',
+                            
                             isRadioButton: false,
                         }
                     ]
@@ -677,8 +677,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "Droit"
                                 }
                             ],
-                            name: 'Position',
-                            value: '',
+                            name: 'Position', value: 'G',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -700,8 +700,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "T4"
                                 }
                             ],
-                            name: 'T',
-                            value:'',
+                            name: 'T', value: 'T1',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -723,8 +723,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                     name : "N3",
                                 }
                             ],
-                            name: 'N',
-                            value: '',
+                            name: 'N', value: 'N0',
+                            
                             isRadioButton: true,
                         },
                         {
@@ -756,7 +756,7 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
                                 }
                             ],
                             name: 'Envahissement',
-                            value: '',
+                            
                             isRadioButton: false,
                         }
                     ]
@@ -783,27 +783,50 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
 
     $scope.controlAffichage = function(){
         $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
-        $scope.tabZones[0].localisations[2].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
-        $scope.tabZones[0].localisations[3].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
-        $scope.tabZones[0].localisations[4].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
+        $scope.tabZones[0].localisations[2].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[2].details[1].items[0].value == $scope.tabZones[0].localisations[2].details[1].value);
+        $scope.tabZones[0].localisations[3].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[3].details[1].items[0].value == $scope.tabZones[0].localisations[3].details[1].value);
+        $scope.tabZones[0].localisations[4].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[4].details[1].items[0].value == $scope.tabZones[0].localisations[4].details[1].value);
     };
     $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = $scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value;
 
     $scope.goToPapaya = function(){
-        $scope.tabResults.forEach(function(description, index){
-            document.getElementById("File")["click"]();
-            if(document.getElementById("Open-"+description.resultString+"0") != null){
-
-                console.log("Open-"+description.resultString+"0");
-                console.log(document.getElementById("Open-"+description.resultString+"0"));
-                document.getElementById("Open-"+description.resultString+"0")["click"]();
-            }else{
-                document.getElementById("File")["click"]();
-                alert("La description n°"+index+" n'existe pas");
-            }
-
-        });
+        //$scope.tabResults.forEach(function(description, index){
+        //    document.getElementById("File")["click"]();
+        //    if(document.getElementById("Open-"+description.resultString+"0") != null){
+        //
+        //        console.log("Open-"+description.resultString+"0");
+        //        console.log(document.getElementById("Open-"+description.resultString+"0"));
+        //        document.getElementById("Open-"+description.resultString+"0")["click"]();
+        //        $rootScope.nbItem = $rootScope.nbItem + 1;
+        //    }else{
+        //        document.getElementById("File")["click"]();
+        //        alert("La description n°"+index+" n'existe pas");
+        //    }
+        //
+        //});
+        $scope.loadOverlay(0, $scope.tabResults[0]);
         $scope.cancelChoice();
+    };
+
+    $scope.loadOverlay = function(index, description){
+        document.getElementById("File")["click"]();
+        if(document.getElementById("Open-"+description.resultString+"0") != null){
+
+            console.log("Open-"+description.resultString+"0");
+            console.log(document.getElementById("Open-"+description.resultString+"0"));
+            document.getElementById("Open-"+description.resultString+"0")["click"]();
+            $rootScope.nbItem = $rootScope.nbItem + 1;
+        }else{
+            document.getElementById("File")["click"]();
+            alert("La description n°"+index+" n'existe pas");
+        }
+
+        if(index < $scope.tabResults.length-1){
+            $timeout(function(){
+                $scope.loadOverlay(index+1, $scope.tabResults[index+1])
+            }, 1000);
+        }
+
     };
 
 //  Open-oropharynx_amygdale_G_T1_N0__true_false_false_false_false0
@@ -882,18 +905,43 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet) {
         $scope.tabResultDetails.splice(index-3, 4);
     };
 
+    console.log($rootScope.nbItem);
+
+    $scope.closeOverlay = function(){
+        console.log("closeOverlay");
+        console.log($rootScope.nbItem);
+        console.log($scope.tabResults);
+        var nbItem = $rootScope.nbItem;
+        for(var i = 0; i < nbItem ; i++){
+            //document.getElementById("File")["click"]();
+            var nb = i+1;
+            console.log(nb);
+            if(document.getElementById("ImageButton10") != null){
+                document.getElementById("ImageButton10")["click"]();
+                if(document.getElementById("CloseOverlay-10") != null){
+                    document.getElementById("CloseOverlay-10")["click"]();
+                    $rootScope.nbItem = $rootScope.nbItem - 1;
+                }
+            }
+        };
+        //$scope.cancelChoice();
+    };
+
     $scope.cancelChoice = function() {
         $mdBottomSheet.hide();
     };
 
-}).controller('buttonController', function($scope, $mdBottomSheet, $timeout) {
+}).controller('buttonController', function($scope, $mdBottomSheet, $timeout, $rootScope) {
+
+    $rootScope.nbItem = 0;
 
     $scope.showGridBottomSheet = function($event) {
         $scope.alert = '';
         $mdBottomSheet.show({
             templateUrl: 'bottom-sheet-grid-template.html',
             targetEvent: $event
-        }).then(function(clickedItem) {
+        }).then(function(nbItem) {
+            $scope.nbItem = nbItem;
             //$scope.alert = clickedItem.name + ' clicked!';
         });
     };
