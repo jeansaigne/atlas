@@ -88,32 +88,32 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire II",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire III",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire IV",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire V",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Pilier antérieur",
-                                    ngIf : true
+                                    ngIf : false
                                 }
                             ],
                             name: 'Envahissement',
@@ -198,25 +198,25 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire II",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire III",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire IV",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire V",
-                                    ngIf : true,
+                                    ngIf : false,
                                 }
                             ],
                             name: 'Envahissement',
@@ -301,25 +301,25 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire II",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire III",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire IV",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire V",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
                                 {
@@ -411,25 +411,25 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire II",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire III",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire IV",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire V",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
                                 {
@@ -521,25 +521,25 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire II",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire III",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire IV",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire V",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
                                 {
@@ -631,25 +631,25 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire II",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire III",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire IV",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire V",
-                                    ngIf : true,
+                                    ngIf : false,
                                 }
                             ],
                             name: 'Envahissement',
@@ -734,25 +734,25 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire II",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire III",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire IV",
-                                    ngIf : true,
+                                    ngIf : false,
                                 },
                                 {
                                     isChecked : false,
                                     value : "false",
                                     name : "Aire V",
-                                    ngIf : true,
+                                    ngIf : false,
                                 }
                             ],
                             name: 'Envahissement',
@@ -772,7 +772,8 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
         {
             value : "Sein",
             name : "Sein",
-            localisations : []
+            localisations : [],
+            ngIf : function(){ return 0}
         }
     ];
 
@@ -786,6 +787,21 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
         $scope.tabZones[0].localisations[2].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[2].details[1].items[0].value == $scope.tabZones[0].localisations[2].details[1].value);
         $scope.tabZones[0].localisations[3].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[3].details[1].items[0].value == $scope.tabZones[0].localisations[3].details[1].value);
         $scope.tabZones[0].localisations[4].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[4].details[1].items[0].value == $scope.tabZones[0].localisations[4].details[1].value);
+
+        $scope.tabZones[0].localisations.forEach(function(loca){
+            loca.details[3].items[0].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
+            loca.details[3].items[1].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
+            loca.details[3].items[2].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
+            loca.details[3].items[3].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
+        });
+        console.log($scope.tabZones);
+        //$scope.tabZones[0].localisations[0].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
+        //$scope.tabZones[0].localisations[1].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[2].details[1].items[0].value == $scope.tabZones[0].localisations[2].details[1].value);
+        //$scope.tabZones[0].localisations[2].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[3].details[1].items[0].value == $scope.tabZones[0].localisations[3].details[1].value);
+        //$scope.tabZones[0].localisations[3].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[4].details[1].items[0].value == $scope.tabZones[0].localisations[4].details[1].value);
+        //$scope.tabZones[0].localisations[4].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[2].details[1].items[0].value == $scope.tabZones[0].localisations[2].details[1].value);
+        //$scope.tabZones[0].localisations[5].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[3].details[1].items[0].value == $scope.tabZones[0].localisations[3].details[1].value);
+        //$scope.tabZones[0].localisations[6].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[4].details[1].items[0].value == $scope.tabZones[0].localisations[4].details[1].value);
     };
     $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = $scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value;
 
