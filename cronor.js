@@ -513,8 +513,6 @@ jQuery(document).ready(function() {
     params["showOrientation"] = true;
     //params["showControlBar"] = true;
     params["expandable"] = true;
-    params["oropharynx_amygdale_G_T1_N0_false_false_false_false_false.nii.gz"] = {"min": 1, "max": 105, "lut": "Spectrum", "alpha": 0.5};
-
 
 
 
