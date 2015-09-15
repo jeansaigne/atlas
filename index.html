@@ -56,7 +56,7 @@
 	</body>
 
     <script type="text/ng-template" id="bottom-sheet-grid-template.html">
-        <md-bottom-sheet class="md-grid">
+        <md-bottom-sheet class="md-grid" stop-event='touchstart' style="overflow: scroll; max-height: 100%">
             <md-content ng-controller="ChoixCtrl">
 
 
@@ -87,7 +87,7 @@
 
 
 
-                    <md-content layout="row" layout-fill layout-align="center start">
+                    <md-content layout="row" layout-sm="column" layout-align="center start" layout-align-sm="center center" >
                         <!--Debut premier etage-->
                         <md-content>
                             <md-radio-group ng-model="zoneValue">
@@ -137,13 +137,13 @@
 
 
 
-                        <md-content layout="row" ng-repeat="zone in tabZones" flex="45" ng-if="zoneValue == zone.value">
+                        <md-content layout="row"  ng-repeat="zone in tabZones" flex-sm="100" flex="45" ng-if="zoneValue == zone.value" layout-fill>
                             <!--Debut deuxieme etage            -->
                             <md-content layout="column"  flex>
                                 <md-content layout="row" ng-repeat="loca in zone.localisations">
                                     <!--Debut troisieme etage                        -->
                                     <md-content layout="column"  ng-if="loca.value == zone.childValue" layout-fill>
-                                        <md-content layout="row">
+                                        <md-content layout="row" layout-sm="column" layout-align-sm="center center">
                                             <md-content layout="column" ng-repeat="detail in loca.details" ng-if="detail.isRadioButton">
                                                 <md-radio-group ng-model="detail.value" ng-change="controlAffichage()">
                                                     <md-subheader class="md-primary">
@@ -160,7 +160,7 @@
                                                 </md-radio-group>
                                             </md-content>
 
-                                            <md-content layout="column" ng-repeat="detail in loca.details" ng-if="!detail.isRadioButton">
+                                            <md-content layout="column" layout-sm="row" ng-repeat="detail in loca.details" ng-if="!detail.isRadioButton">
                                                 <md-radio-group>
                                                 <md-subheader class="md-primary">
                                                     {{detail.name}} : {{detail.value}}
