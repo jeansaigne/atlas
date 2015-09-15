@@ -955,20 +955,10 @@ choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $ro
         $scope.alert = '';
         $mdBottomSheet.show({
             templateUrl: 'bottom-sheet-grid-template.html',
-            targetEvent: $event,
-            disableParentScroll : true
+            targetEvent: $event
         }).then(function(nbItem) {
             $scope.nbItem = nbItem;
             //$scope.alert = clickedItem.name + ' clicked!';
         });
-    };
-}).directive('stopEvent', function() {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attr) {
-            return element.bind(attr.stopEvent, function(e) {
-                return e.stopPropagation();
-            });
-        }
     };
 });
