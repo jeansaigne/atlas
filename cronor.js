@@ -143,8 +143,8 @@ papaya.data.Atlas.labels = {
                 " : :BRH Mandibule:Gray Matter:Gauche",
                 " : :BRV Mandibule:Gray Matter:Droite",
                 " : :BRV Mandibule:Gray Matter:Gauche",
-                " : :Base Langue+2cm:Gray Matter:Gauche",
-                " : :Base Langue+2cm:Gray Matter:Droite",
+                " : :Langue 2cm:Gray Matter:Gauche",
+                " : :Langue 2cm:Gray Matter:Droite",
                 " : :M pterygoidien medial:Gray Matter:Droite",
                 " : :M pterygoidien medial:Gray Matter:Gauche",]
 
