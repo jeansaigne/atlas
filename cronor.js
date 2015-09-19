@@ -175,8 +175,8 @@ papaya.data.Atlas.labels = {
  nicename: "CRONOR",
  url: "CRONOR.nii.gz"
  }];
- */
 
+*/
 
 
 /*Parse une chaine de caractère représentant l'intégralité d'un FICHIER RTSTRUCT et renvoi un tableau des ROI(s) détectées, sous forme de chaine de caractères
@@ -282,7 +282,7 @@ function test(){
     $('#localisation').slideToggle(500);
 }
 
-/*Prend un fichier RTstruct au format ".txt" et affecte la variable globale mystruct avec notre structure fonctionnelle 
+/*Prend un fichier RTstruct au format ".txt" et affecte la variable globale mystruct avec notre structure fonctionnelle
  *@pathtotxtfile :  une chaine de caractère représentant le chemin absolu ou relatif vers le fichier en question
  *@return : VOID
  */
@@ -486,7 +486,7 @@ function eteindreroi() {
     window.setTimeout(function(){
         console.log(vol[1].volume.imageData)
 //            vol[1].volume.imageData.data.forEach(function(currentData){
-//               currentData=1; 
+//               currentData=1;
 //            });
         for(var i = 0; i<vol[1].volume.imageData.data.length; i++){
             if (vol[1].volume.imageData.data[i] != 5){

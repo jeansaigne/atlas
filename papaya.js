@@ -1,4 +1,14 @@
-var PAPAYA_VERSION_ID="0.8",PAPAYA_BUILD_NUM="920",papayaLoadableImages=[{name:"oropharynx_amygdale_B_T1_N0_false_false_false_false_false",nicename:"oropharynx_amygdale_B_T1_N0_false_false_false_false_false",url:"data/oropharynx_amygdale_B_T1_N0_false_false_false_false_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N0_false_false_false_false_true",nicename:"oropharynx_amygdale_B_T1_N0_false_false_false_false_true",url:"data/oropharynx_amygdale_B_T1_N0_false_false_false_false_true.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_false_false_false_false",
+var PAPAYA_VERSION_ID="0.8",PAPAYA_BUILD_NUM="920",papayaLoadableImages=[{
+name: "ATLAS",
+nicename: "ATLAS",
+url: "ATLAS.nii.gz"
+},
+{
+//  hide: true,
+name: "CRONOR",
+nicename: "CRONOR",
+url: "CRONOR.nii.gz"
+},{name:"oropharynx_amygdale_B_T1_N0_false_false_false_false_false",nicename:"oropharynx_amygdale_B_T1_N0_false_false_false_false_false",url:"data/oropharynx_amygdale_B_T1_N0_false_false_false_false_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N0_false_false_false_false_true",nicename:"oropharynx_amygdale_B_T1_N0_false_false_false_false_true",url:"data/oropharynx_amygdale_B_T1_N0_false_false_false_false_true.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_false_false_false_false",
 nicename:"oropharynx_amygdale_B_T1_N3_false_false_false_false_false",url:"data/oropharynx_amygdale_B_T1_N3_false_false_false_false_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_false_false_true_false",nicename:"oropharynx_amygdale_B_T1_N3_false_false_false_true_false",url:"data/oropharynx_amygdale_B_T1_N3_false_false_false_true_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_false_true_false_false",nicename:"oropharynx_amygdale_B_T1_N3_false_false_true_false_false",url:"data/oropharynx_amygdale_B_T1_N3_false_false_true_false_false.nii.gz"},
 {name:"oropharynx_amygdale_B_T1_N3_false_false_true_true_false",nicename:"oropharynx_amygdale_B_T1_N3_false_false_true_true_false",url:"data/oropharynx_amygdale_B_T1_N3_false_false_true_true_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_true_false_false_false",nicename:"oropharynx_amygdale_B_T1_N3_false_true_false_false_false",url:"data/oropharynx_amygdale_B_T1_N3_false_true_false_false_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_true_false_true_false",nicename:"oropharynx_amygdale_B_T1_N3_false_true_false_true_false",
 url:"data/oropharynx_amygdale_B_T1_N3_false_true_false_true_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_true_true_false_false",nicename:"oropharynx_amygdale_B_T1_N3_false_true_true_false_false",url:"data/oropharynx_amygdale_B_T1_N3_false_true_true_false_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_false_true_true_true_false",nicename:"oropharynx_amygdale_B_T1_N3_false_true_true_true_false",url:"data/oropharynx_amygdale_B_T1_N3_false_true_true_true_false.nii.gz"},{name:"oropharynx_amygdale_B_T1_N3_true_false_false_false_false",
