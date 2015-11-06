@@ -185,7 +185,7 @@
                                             <td>{{description.position.name}}</td>
                                             <td>{{description.stadeT.name}}</td>
                                             <td>{{description.stadeN.name}}</td>
-                                            <td>{{description.env[0].isChecked}}</td>
+                                            <td><span ng-show="description.env[0].isChecked">{{description.env[0].name}}</span></td>
                                             <td>
                                                 <span ng-repeat="item in description.envG">
                                                     <span ng-show="item.isChecked">{{item.name}}</span>
