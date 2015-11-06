@@ -20,7 +20,13 @@
 	line-height: 48px;
 	background-color: aliceblue;
 }
+md-radio-button{
+	margin: 8px;
+}
 
+th.customTH{
+	vertical-align: middle !important;
+}
 
 /*#choix-localisation{*/
 	/*/!*height: 200px;*!/*/

@@ -2,963 +2,425 @@
  * Created by lardtiste on 25/08/15.
  */
 
-var choixApp = angular.module('choixApp', ['ngMaterial']);
+var choixApp = angular.module('choixApp', ['ngMaterial', 'md.data.table']);
 
-choixApp.controller('ChoixCtrl', function ($scope, $timeout, $mdBottomSheet, $rootScope) {
-    console.log("ChoixCtrl");
+choixApp.controller('buttonController', function($scope, $mdBottomSheet, $timeout, $rootScope, $mdDialog) {
+
+    $rootScope.descriptions = [];
+
+    $scope.showAdvanced = function(ev) {
+        $mdDialog.show({
+            controller: ChoixCtrl,
+            templateUrl: 'bottom-sheet-grid-template.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+        })
+            .then(function(descriptions) {
+                $rootScope.descriptions = descriptions;
+            }, function() {
+            });
+    };
+});
+
+function ChoixCtrl($scope, $timeout, $mdBottomSheet, $rootScope, $mdDialog){
+
+    $scope.descriptions = $rootScope.descriptions;
+
+    $scope.selectionedZoneValue = "";
+    $scope.selectionedLocaValue = "";
+    $scope.selectionedPositionValue = "";
+    $scope.selectionedTValue = "";
+    $scope.selectionedNValue = "";
+    $scope.selectionedEnvaGaucheValue = "";
+    $scope.selectionedEnvaDroitValue = "";
+
+    $scope.showTabEnvGauche = false;
+    $scope.showTabEnvDroit = false;
+    $scope.showTabEnv = false;
 
     $scope.tabZones = [
         {
-            value : "oropharynx",
-            name : "Oropharynx",
-            localisations : [
-                {
-                    value : "amygdale",
-                    name : "Amygdale",
-                    details : [
-                        {
-                            items : [
-                                {
-                                    value : "G",
-                                    name : "Gauche",
-                                },
-                                {
-                                    value : "B",
-                                    name : "Bilatérale"
-                                },
-                                {
-                                    value : "D",
-                                    name : "Droit"
-                                }
-                            ],
-                            name: 'Position', value: 'G',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "T1",
-                                    name : "T1"
-                                },
-                                {
-                                    value : "T2",
-                                    name : "T2"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T3"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T4"
-                                }
-                            ],
-                            name: 'T', value: 'T1',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "N0",
-                                    name : "N0"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N1"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N2"
-                                },
-                                {
-                                    value : "N3",
-                                    name : "N3",
-                                }
-                            ],
-                            name: 'N', value: 'N0',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
-                            items : [
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire II",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire III",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire IV",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire V",
-                                    ngIf : false,
-                                },
-                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Pilier antérieur",
-                                    ngIf : false
-                                }
-                            ],
-                            name: 'Envahissement',
-                            
-                            isRadioButton: false,
-                        }
-                    ]
-                },
-                {
-                    value : "langue",
-                    name : "Base de la langue",
-                    details : [
-                        {
-                            items : [
-                                {
-                                    value : "G",
-                                    name : "Gauche",
-                                },
-                                {
-                                    value : "B",
-                                    name : "Bilatérale"
-                                },
-                                {
-                                    value : "D",
-                                    name : "Droit"
-                                }
-                            ],
-                            name: 'Position', value: 'G',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "T1",
-                                    name : "T1"
-                                },
-                                {
-                                    value : "T2",
-                                    name : "T2"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T3"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T4"
-                                }
-                            ],
-                            name: 'T', value: 'T1',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "N0",
-                                    name : "N0"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N1"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N2"
-                                },
-                                {
-                                    value : "N3",
-                                    name : "N3",
-                                }
-                            ],
-                            name: 'N', value: 'N0',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
-                            items : [
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire II",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire III",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire IV",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire V",
-                                    ngIf : false,
-                                }
-                            ],
-                            name: 'Envahissement',
-                            
-                            isRadioButton: false,
-                        }
-                    ]
-                },
-                {
-                    value : "pilierpost",
-                    name : "Pilier postérieur",
-                    details : [
-                        {
-                            items : [
-                                {
-                                    value : "G",
-                                    name : "Gauche",
-                                },
-                                {
-                                    value : "B",
-                                    name : "Bilatérale"
-                                },
-                                {
-                                    value : "D",
-                                    name : "Droit"
-                                }
-                            ],
-                            name: 'Position', value: 'G',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "T1",
-                                    name : "T1"
-                                },
-                                {
-                                    value : "T2",
-                                    name : "T2"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T3"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T4"
-                                }
-                            ],
-                            name: 'T', value: 'T1',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "N0",
-                                    name : "N0"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N1"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N2"
-                                },
-                                {
-                                    value : "N3",
-                                    name : "N3",
-                                }
-                            ],
-                            name: 'N', value: 'N0',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
-                            items : [
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire II",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire III",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire IV",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire V",
-                                    ngIf : false,
-                                },
-                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Pilier antérieur",
-                                    ngIf : false,
-                                }
-                            ],
-                            name: 'Envahissement',
-                            
-                            isRadioButton: false,
-                        }
-                    ]
-                },
-                {
-                    value : "pilierant",
-                    name : "Pilier antérieur",
-                    details : [
-                        {
-                            items : [
-                                {
-                                    value : "G",
-                                    name : "Gauche",
-                                },
-                                {
-                                    value : "B",
-                                    name : "Bilatérale"
-                                },
-                                {
-                                    value : "D",
-                                    name : "Droit"
-                                }
-                            ],
-                            name: 'Position', value: 'G',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "T1",
-                                    name : "T1"
-                                },
-                                {
-                                    value : "T2",
-                                    name : "T2"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T3"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T4"
-                                }
-                            ],
-                            name: 'T', value: 'T1',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "N0",
-                                    name : "N0"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N1"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N2"
-                                },
-                                {
-                                    value : "N3",
-                                    name : "N3",
-                                }
-                            ],
-                            name: 'N', value: 'N0',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
-                            items : [
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire II",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire III",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire IV",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire V",
-                                    ngIf : false,
-                                },
-                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Pilier antérieur",
-                                    ngIf : false,
-                                }
-                            ],
-                            name: 'Envahissement',
-                            
-                            isRadioButton: false,
-                        }
-                    ]
-                },
-                {
-                    value : "voile",
-                    name : "Voile",
-                    details : [
-                        {
-                            items : [
-                                {
-                                    value : "G",
-                                    name : "Gauche",
-                                },
-                                {
-                                    value : "B",
-                                    name : "Bilatérale"
-                                },
-                                {
-                                    value : "D",
-                                    name : "Droit"
-                                }
-                            ],
-                            name: 'Position', value: 'G',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "T1",
-                                    name : "T1"
-                                },
-                                {
-                                    value : "T2",
-                                    name : "T2"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T3"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T4"
-                                }
-                            ],
-                            name: 'T', value: 'T1',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "N0",
-                                    name : "N0"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N1"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N2"
-                                },
-                                {
-                                    value : "N3",
-                                    name : "N3",
-                                }
-                            ],
-                            name: 'N', value: 'N0',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
-                            items : [
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire II",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire III",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire IV",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire V",
-                                    ngIf : false,
-                                },
-                                //5eme valeur que pour amydale, pilier ant, pilier post, voile et que si N0 et T1
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Pilier antérieur",
-                                    ngIf : false,
-                                }
-                            ],
-                            name: 'Envahissement',
-                            
-                            isRadioButton: false,
-                        }
-                    ]
-                },
-                {
-                    value : "vallecule",
-                    name : "Vallécule",
-                    details : [
-                        {
-                            items : [
-                                {
-                                    value : "G",
-                                    name : "Gauche",
-                                },
-                                {
-                                    value : "B",
-                                    name : "Bilatérale"
-                                },
-                                {
-                                    value : "D",
-                                    name : "Droit"
-                                }
-                            ],
-                            name: 'Position', value: 'G',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "T1",
-                                    name : "T1"
-                                },
-                                {
-                                    value : "T2",
-                                    name : "T2"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T3"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T4"
-                                }
-                            ],
-                            name: 'T', value: 'T1',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "N0",
-                                    name : "N0"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N1"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N2"
-                                },
-                                {
-                                    value : "N3",
-                                    name : "N3",
-                                }
-                            ],
-                            name: 'N', value: 'N0',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
-                            items : [
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire II",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire III",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire IV",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire V",
-                                    ngIf : false,
-                                }
-                            ],
-                            name: 'Envahissement',
-                            
-                            isRadioButton: false,
-                        }
-                    ]
-                },
-                {
-                    value : "ppp",
-                    name : "Paroi pharyngée postérieur",
-                    details : [
-                        {
-                            items : [
-                                {
-                                    value : "G",
-                                    name : "Gauche",
-                                },
-                                {
-                                    value : "B",
-                                    name : "Bilatérale"
-                                },
-                                {
-                                    value : "D",
-                                    name : "Droit"
-                                }
-                            ],
-                            name: 'Position', value: 'G',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "T1",
-                                    name : "T1"
-                                },
-                                {
-                                    value : "T2",
-                                    name : "T2"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T3"
-                                },
-                                {
-                                    value : "T3T4",
-                                    name : "T4"
-                                }
-                            ],
-                            name: 'T', value: 'T1',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            items : [
-                                {
-                                    value : "N0",
-                                    name : "N0"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N1"
-                                },
-                                {
-                                    value : "N",
-                                    name : "N2"
-                                },
-                                {
-                                    value : "N3",
-                                    name : "N3",
-                                }
-                            ],
-                            name: 'N', value: 'N0',
-                            
-                            isRadioButton: true,
-                        },
-                        {
-                            //QUATRIEME SOUS FAMILLE 4 CHECKBOX
-                            items : [
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire II",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire III",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire IV",
-                                    ngIf : false,
-                                },
-                                {
-                                    isChecked : false,
-                                    value : "false",
-                                    name : "Aire V",
-                                    ngIf : false,
-                                }
-                            ],
-                            name: 'Envahissement',
-                            
-                            isRadioButton: false,
-                        }
-                    ]
-                }
-
-            ]
-        },
-        {
+            value: "oropharynx",
+            name: "Oropharynx"
+        },{
             value : "cavite-buccale",
-            name : "Cavité buccale",
-            localisations : []
-        },
+            name : "Cavité buccale"
+        }
+    ];
+    $scope.tabLocalisationsOropharynx = [
         {
-            value : "Sein",
-            name : "Sein",
-            localisations : [],
-            ngIf : function(){ return 0}
+            value: "amygdale",
+            name: "Amygdale",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        },{
+            value : "langue",
+            name : "Base de la langue",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        },{
+            value : "pilierpost",
+            name : "Pilier postérieur",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        },{
+            value : "pilierant",
+            name : "Pilier antérieur",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        },{
+            value : "voile",
+            name : "Voile",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        },{
+            value : "vallecule",
+            name : "Vallécule",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        },{
+            value : "ppp",
+            name : "Paroi pharyngée postérieur",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        },{
+            value : "sillon",
+            name : "Sillon amygdaloglosse",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "oropharynx"
+            }
+        }
+    ];
+    $scope.tabLocalisationsCavite = [
+        {
+            value : "langue-mobile",
+            name : "Langue mobile",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "cavite-buccale"
+            }
+        },{
+            value : "plancher-buccal",
+            name : "Plancher buccal, gencive inférieure",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "cavite-buccale"
+            }
+        },{
+            value : "face-int-joue",
+            name : "Face interne de joue",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "cavite-buccale"
+            }
+        },{
+            value : "gencive-sup",
+            name : "Gencive supérieure",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "cavite-buccale"
+            }
+        },{
+            value : "palais",
+            name : "Palais dur",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedZoneValue.value == "cavite-buccale"
+            }
         }
     ];
 
-    $scope.selectionedDescriptions = [];
-
-    $scope.isOkToAddDescription = true;
-    $scope.isOkToGoPapaya = true;
-
-    $scope.controlAffichage = function(){
-        $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
-        $scope.tabZones[0].localisations[2].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[2].details[1].items[0].value == $scope.tabZones[0].localisations[2].details[1].value);
-        $scope.tabZones[0].localisations[3].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[3].details[1].items[0].value == $scope.tabZones[0].localisations[3].details[1].value);
-        $scope.tabZones[0].localisations[4].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[4].details[1].items[0].value == $scope.tabZones[0].localisations[4].details[1].value);
-
-        $scope.tabZones[0].localisations.forEach(function(loca){
-            loca.details[3].items[0].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
-            loca.details[3].items[1].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
-            loca.details[3].items[2].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
-            loca.details[3].items[3].ngIf = !((loca.details[2].items[0].value == loca.details[2].value) && (loca.details[1].items[0].value == loca.details[1].value));
-        });
-        console.log($scope.tabZones);
-        //$scope.tabZones[0].localisations[0].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value) && ($scope.tabZones[0].localisations[0].details[1].items[0].value == $scope.tabZones[0].localisations[0].details[1].value);
-        //$scope.tabZones[0].localisations[1].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[2].details[1].items[0].value == $scope.tabZones[0].localisations[2].details[1].value);
-        //$scope.tabZones[0].localisations[2].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[3].details[1].items[0].value == $scope.tabZones[0].localisations[3].details[1].value);
-        //$scope.tabZones[0].localisations[3].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[4].details[1].items[0].value == $scope.tabZones[0].localisations[4].details[1].value);
-        //$scope.tabZones[0].localisations[4].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[2].details[2].items[0].value == $scope.tabZones[0].localisations[2].details[2].value) && ($scope.tabZones[0].localisations[2].details[1].items[0].value == $scope.tabZones[0].localisations[2].details[1].value);
-        //$scope.tabZones[0].localisations[5].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[3].details[2].items[0].value == $scope.tabZones[0].localisations[3].details[2].value) && ($scope.tabZones[0].localisations[3].details[1].items[0].value == $scope.tabZones[0].localisations[3].details[1].value);
-        //$scope.tabZones[0].localisations[6].details[3].items[4].ngIf = ($scope.tabZones[0].localisations[4].details[2].items[0].value == $scope.tabZones[0].localisations[4].details[2].value) && ($scope.tabZones[0].localisations[4].details[1].items[0].value == $scope.tabZones[0].localisations[4].details[1].value);
-    };
-    $scope.tabZones[0].localisations[0].details[3].items[4].ngIf = $scope.tabZones[0].localisations[0].details[2].items[0].value == $scope.tabZones[0].localisations[0].details[2].value;
-
-    $scope.goToPapaya = function(){
-        //$scope.tabResults.forEach(function(description, index){
-        //    document.getElementById("File")["click"]();
-        //    if(document.getElementById("Open-"+description.resultString+"0") != null){
-        //
-        //        console.log("Open-"+description.resultString+"0");
-        //        console.log(document.getElementById("Open-"+description.resultString+"0"));
-        //        document.getElementById("Open-"+description.resultString+"0")["click"]();
-        //        $rootScope.nbItem = $rootScope.nbItem + 1;
-        //    }else{
-        //        document.getElementById("File")["click"]();
-        //        alert("La description n°"+index+" n'existe pas");
-        //    }
-        //
-        //});
-        $scope.loadOverlay(0, $scope.tabResults[0]);
-        $scope.cancelChoice();
-    };
-
-    $scope.loadOverlay = function(index, description){
-        document.getElementById("File")["click"]();
-        if(document.getElementById("Open-"+description.resultString+"0") != null){
-
-            console.log("Open-"+description.resultString+"0");
-            console.log(document.getElementById("Open-"+description.resultString+"0"));
-            document.getElementById("Open-"+description.resultString+"0")["click"]();
-            $rootScope.nbItem = $rootScope.nbItem + 1;
-        }else{
-            document.getElementById("File")["click"]();
-            alert("La description n°"+index+" n'existe pas");
+    $scope.tabPositions = [
+        {
+            value : "G",
+            name : "Gauche",
+        },{
+            value : "B",
+            name : "Bilatérale"
+        },{
+            value : "D",
+            name : "Droit"
         }
+    ];
 
-        if(index < $scope.tabResults.length-1){
-            $timeout(function(){
-                $scope.loadOverlay(index+1, $scope.tabResults[index+1])
-            }, 1000);
+    $scope.tabT = [
+        {
+            value : "T1",
+            name : "T1"
+        },{
+            value : "T2",
+            name : "T2"
+        },{
+            value : "T3T4",
+            name : "T3"
+        },{
+            value : "T3T4",
+            name : "T4"
         }
+    ];
 
-    };
+    $scope.tabN = [
+        {
+            value : "N0",
+            name : "N0"
+        },{
+            value : "N",
+            name : "N1"
+        },{
+            value : "N",
+            name : "N2"
+        },{
+            value : "N3",
+            name : "N3",
+        }
+    ];
 
-//  Open-oropharynx_amygdale_G_T1_N0__true_false_false_false_false0
-    $scope.tabResults = [];
-    $scope.tabResultDetails = [];
-    $scope.tabResultPosition = [];
-    $scope.tabResultT = [];
-    $scope.tabResultN = [];
-
-
-    $scope.addDescription = function(){
-        //console.log($scope.tabZones);
-        var result = "";
-        var resultObject = {};
-        $scope.tabZones.forEach(function(zone){
-            if(zone.value == $scope.zoneValue){
-                result = $scope.zoneValue+"_"+zone.childValue+"_";
-                zone.localisations.forEach(function(loca){
-                    if(loca.value == zone.childValue){
-                        loca.details.forEach(function(detail, $index){
-
-                            if($index == 3){
-                                result = result + detail.items[0].isChecked+"_"+detail.items[1].isChecked+"_"+detail.items[2].isChecked+"_"+detail.items[3].isChecked+"_";
-                                if((detail.items.length>4) && (detail.items[4].ngIf)){
-                                    result = result + detail.items[4].isChecked;
-                                }else{
-                                    result = result + "false";
-                                }
-                                resultObject = {
-                                    resultString : result,
-                                    zone : zone.name,
-                                    loca : loca.name,
-                                };
-                                $scope.tabResults.push(resultObject);
-                                console.log($scope.tabResults);
-
-                                $scope.tabResultDetails.push(
-                                    {
-                                        name : loca.details[0].name,
-                                        value : loca.details[0].value
-                                    },
-                                    {
-                                        name : loca.details[1].name,
-                                        value : loca.details[1].value
-                                    },
-                                    {
-                                        name : loca.details[2].name,
-                                        value : loca.details[2].value
-                                    },
-                                    {
-                                        name : loca.details[3].name,
-                                        value : loca.details[3].items[0].isChecked+" "+loca.details[3].items[1].isChecked+" "+loca.details[3].items[2].isChecked+" "+loca.details[3].items[3].isChecked+" "
-                                    }
-                                );
-
-                            }else{
-                                result = result + detail.value+"_";
-                            }
-                        });
-                    }
-                });
+    $scope.tabEnvGauche = [
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire II",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
             }
+        },
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire III",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
+            }
+        },
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire IV",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
+            }
+        },
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire V",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
+            }
+        }
+    ];
 
-        });
-        //console.log($rootScope);
-        //var result = $scope.zoneValue+"_"+$scope.locaValue+"_";
-        console.log(result);
-        //$scope.selectionedDescriptions.push("Open-+"+result+"0");
-    };
+    $scope.tabEnv = [
+        {
+            isChecked : false,
+            value : "false",
+            name : "Pilier antérieur",
+            ngIf : true,
+            displayFunction: function(){
+                return (($scope.selectionedNValue.value == "N0" && $scope.selectionedTValue.value == "T1" ) &&
+                ($scope.selectionedLocaValue.value == "amygdale" ||
+                    $scope.selectionedLocaValue.value == "pilierant" ||
+                    $scope.selectionedLocaValue.value == "pilierpost" ||
+                    $scope.selectionedLocaValue.value == "sillon" ||
+                    $scope.selectionedLocaValue.value == "voile"
+                ))
+            }
+        }
+    ];
 
-    $scope.deleteDescription = function(det, index){
-        console.log(det);
-        var realIndex = ((index)/4).toFixed(0) -1;
-        console.log(realIndex);
-        $scope.tabResults.splice(realIndex, 1);
-        $scope.tabResultDetails.splice(index-3, 4);
-    };
+    $scope.tabEnvDroit = [
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire II",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
+            }
+        },
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire III",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
+            }
+        },
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire IV",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
+            }
+        },
+        {
+            isChecked : false,
+            value : "false",
+            name : "Aire V",
+            ngIf : true,
+            displayFunction: function(){
+                return $scope.selectionedNValue.value != "N0"
+            }
+        }
+    ];
 
-    console.log($rootScope.nbItem);
+    $scope.tabLocalisations = [];
 
-    $scope.closeOverlay = function(){
-        console.log("closeOverlay");
-        console.log($rootScope.nbItem);
-        console.log($scope.tabResults);
-        var nbItem = $rootScope.nbItem;
-        for(var i = 0; i < nbItem ; i++){
-            //document.getElementById("File")["click"]();
-            var nb = i+1;
-            console.log(nb);
-            if(document.getElementById("ImageButton10") != null){
-                document.getElementById("ImageButton10")["click"]();
-                if(document.getElementById("CloseOverlay-10") != null){
-                    document.getElementById("CloseOverlay-10")["click"]();
-                    $rootScope.nbItem = $rootScope.nbItem - 1;
+    $scope.selectionedZoneValue = $scope.tabZones[0];
+
+
+
+    $scope.$watch("selectionedZoneValue", function(){
+        if($scope.selectionedZoneValue.value == "oropharynx"){
+            $scope.tabLocalisations = $scope.tabLocalisationsOropharynx;
+        }else{
+            $scope.tabLocalisations = $scope.tabLocalisationsCavite;
+        }
+        $scope.selectionedLocaValue = {};
+
+    });
+
+    $scope.$watch("selectionedLocaValue", function(){
+        $scope.checkNgIf();
+    });
+    $scope.$watch("selectionedNValue", function(){
+        $scope.checkNgIf();
+    });
+    $scope.$watch("selectionedTValue", function(){
+        $scope.checkNgIf();
+    });
+
+    $scope.checkNgIf = function(){
+
+        $scope.tabEnvGauche.forEach(function(item){
+            if(typeof item.displayFunction === 'function'){
+                item.ngIf = item.displayFunction();
+                if(item.displayFunction() == false){
+                    item.isChecked = false;
+                    $scope.showTabEnvGauche = false;
+                }else{
+                    $scope.showTabEnvGauche = true;
                 }
             }
-        };
-        //$scope.cancelChoice();
-    };
-
-    $scope.cancelChoice = function() {
-        $mdBottomSheet.hide();
-    };
-
-}).controller('buttonController', function($scope, $mdBottomSheet, $timeout, $rootScope) {
-
-    $rootScope.nbItem = 0;
-
-    $scope.showGridBottomSheet = function($event) {
-        $scope.alert = '';
-        $mdBottomSheet.show({
-            templateUrl: 'bottom-sheet-grid-template.html',
-            targetEvent: $event
-        }).then(function(nbItem) {
-            $scope.nbItem = nbItem;
-            //$scope.alert = clickedItem.name + ' clicked!';
         });
+        $scope.tabEnv.forEach(function(item){
+            if(typeof item.displayFunction === 'function'){
+                item.ngIf = item.displayFunction();
+                if(item.displayFunction() == false){
+                    item.isChecked = false;
+                    $scope.showTabEnv = false;
+                }else{
+                    $scope.showTabEnv = true;
+                }
+            }
+        });
+        $scope.tabEnvDroit.forEach(function(item){
+            if(typeof item.displayFunction === 'function'){
+                item.ngIf = item.displayFunction();
+                if(item.displayFunction() == false){
+                    item.isChecked = false;
+                    $scope.showTabEnvDroit = false;
+                }else{
+                    $scope.showTabEnvDroit = true;
+                }
+            }
+        });
+
     };
-});
+    $scope.checkNgIf();
+
+    $scope.addDescription = function(){
+
+
+
+        var title =    $scope.selectionedZoneValue.value + "_" +
+            $scope.selectionedLocaValue.value + "_" +
+            $scope.selectionedPositionValue.value +"_" +
+            $scope.selectionedTValue.value +"_" +
+            $scope.selectionedNValue.value +"_";
+        $scope.tabEnv.forEach(function(item){
+            title = title + item.isChecked + "_";
+        });
+        $scope.tabEnvGauche.forEach(function(item, index){
+            title = title + item.isChecked;
+            if(index != $scope.tabEnvGauche.length-1){
+                title = title + "_";
+            }
+        });
+        var newDescription = {
+            fileName : title,
+            zone: angular.copy($scope.selectionedZoneValue),
+            loca: angular.copy($scope.selectionedLocaValue),
+            position: angular.copy($scope.selectionedPositionValue),
+            stadeT: angular.copy($scope.selectionedTValue),
+            stadeN: angular.copy($scope.selectionedNValue),
+            envG: angular.copy($scope.tabEnvGauche),
+            envD: angular.copy($scope.tabEnvDroit),
+            env:  angular.copy($scope.tabEnv)
+        };
+
+        var isOk = true;
+        console.log("forEach");
+        $scope.descriptions.forEach(function(desc){
+            if(desc.fileName == newDescription.fileName){
+                alert("Cette description existe déjà.");
+                isOk = false;
+            }else{
+
+
+            }
+        });
+
+
+        if(isOk){
+            document.getElementById("File")["click"]();
+            if(document.getElementById("Open-"+newDescription.fileName+"0") != null){
+                document.getElementById("Open-"+newDescription.fileName+"0")["click"]();
+                $scope.descriptions.push(newDescription);
+            }else{
+                document.getElementById("File")["click"]();
+                alert("Nous sommes désolés mais la description demandée n'existe pas en base de données");
+            }
+        }
+
+    };
+
+    $scope.deleteDescription = function(desc, index){
+        console.log(desc);
+        console.log(index);
+        var num = index + 1;
+        if(document.getElementById("ImageButton"+num+"0") != null){
+            document.getElementById("ImageButton"+num+"0")["click"]();
+            if(document.getElementById("CloseOverlay-"+num+"0") != null){
+                document.getElementById("CloseOverlay-"+num+"0")["click"]();
+                $scope.descriptions.splice(index, 1);
+            }
+        }
+    };
+
+    $scope.answer = function() {
+        $mdDialog.hide($scope.descriptions);
+    };
+}

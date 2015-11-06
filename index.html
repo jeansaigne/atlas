@@ -35,6 +35,17 @@
 
         <script type="text/javascript" src="choixApp.js"></script>
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        <!-- style sheet -->
+        <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
+        <!-- module -->
+        <script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+
     	<title>ATLAS CRONOR</title>
 
     	<script type="text/javascript">
@@ -45,161 +56,157 @@
 
 	<body ng-app="choixApp">
         <md-content style="float: right;" ng-controller="buttonController" layout="column" layout-align="center center">
-            <md-button flex="50" class="md-primary md-raised" ng-click="showGridBottomSheet($event)">
+            <md-button flex="50" class="md-primary md-raised" ng-click="showAdvanced()">
                 Choix des localisations
             </md-button>
-
         </md-content>
+
         <div id="papayaDiv" class="papaya" data-params="params"></div>
-        <!--<div id="papayaDiv" class="papaya" data-params="params"></div>-->
 
 	</body>
 
     <script type="text/ng-template" id="bottom-sheet-grid-template.html">
-        <md-bottom-sheet class="md-grid">
-            <md-content ng-controller="ChoixCtrl">
+        <md-dialog aria-label="Choix des descriptions">
+
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Choix des localisations</h2>
+                    <span flex></span>
+                    <md-button ng-click="answer()">Fermer</md-button>
+                </div>
+            </md-toolbar>
+
+                    <md-dialog-content >
+                        <span>Nouvelle description: {{newDescription.fileName}}</span>
+                        <md-content layout="column">
+
+
+                            <md-content layout="row">
+
+                                <md-select placeholder="Zone" ng-model="selectionedZoneValue" ng-change="checkNgIf()">
+                                    <md-option ng-repeat="zone in tabZones" ng-value="zone">{{zone.name}}</md-option>
+                                </md-select>
+                                <md-select placeholder="Localisation" ng-model="selectionedLocaValue">
+                                    <md-option ng-repeat="item in tabLocalisations" ng-value="item">{{item.name}}</md-option>
+                                </md-select>
+                                <md-select placeholder="Position" ng-model="selectionedPositionValue">
+                                    <md-option ng-repeat="item in tabPositions" ng-value="item">{{item.name}}</md-option>
+                                </md-select>
+                                <md-select placeholder="Stade T" ng-model="selectionedTValue">
+                                    <md-option ng-repeat="item in tabT" ng-value="item">{{item.name}}</md-option>
+                                </md-select>
+                                <md-select placeholder="Stade N" ng-model="selectionedNValue">
+                                    <md-option ng-repeat="item in tabN" ng-value="item">{{item.name}}</md-option>
+                                </md-select>
+                                <md-content layout="column" ng-show="showTabEnv">
+                                    <md-content style="font-size: small;">Envahissement</md-content>
+                                    <md-content layout-fill style="overflow: hidden;">
+                                        <md-checkbox style="width: 150px;" ng-repeat="item in tabEnv" ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
+                                            {{ item.name }}
+                                        </md-checkbox>
+                                    </md-content>
+                                </md-content>
+                                <md-content layout="row" ng-show="showTabEnvGauche" style="padding: 24px 2px 26px;cursor: pointer;">
+                                    <md-menu >
+                                            <span class="md-select-label md-placeholder" id="select_label_4" ng-click="$mdOpenMenu()" style="border: none;">
+                                                <md-tooltip>
+                                                    Envahissement gauche
+                                                </md-tooltip>
+                                                <span>Envahissement gauche</span><span class="md-select-icon" aria-hidden="true"></span>
+                                            </span>
+                                        <md-menu-content width="2">
+                                            <md-menu-item ng-repeat="item in tabEnvGauche">
+                                                <md-checkbox ng-model="item.isChecked" aria-label="{{ item.name }}">
+                                                    {{ item.name }}
+                                                </md-checkbox>
+                                            </md-menu-item>
+                                            <md-menu-divider></md-menu-divider>
+                                            <md-menu-item>
+                                                <md-button ng-click="toggleNotifications()">
+                                                    <md-icon md-svg-icon="social:notifications-{{ctrl.notificationsEnabled ? 'off' : 'on'}}"></md-icon>
+                                                    Valider
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+
+                                    <md-menu>
+                                            <span class="md-select-label md-placeholder" id="select_label_4" ng-click="$mdOpenMenu()" style="border: none;">
+                                                 <md-tooltip>
+                                                     Envahissement droit
+                                                 </md-tooltip>
+                                                <span>Envahissement droit</span><span class="md-select-icon" aria-hidden="true"></span>
+                                            </span>
+                                        <md-menu-content width="2">
+                                            <md-menu-item ng-repeat="item in tabEnvDroit">
+                                                <md-checkbox ng-model="item.isChecked" aria-label="{{ item.name }}">
+                                                    {{ item.name }}
+                                                </md-checkbox>
+                                            </md-menu-item>
+                                            <md-menu-divider></md-menu-divider>
+                                            <md-menu-item>
+                                                <md-button ng-click="toggleNotifications()">
+                                                    <md-icon md-svg-icon="social:notifications-{{ctrl.notificationsEnabled ? 'off' : 'on'}}"></md-icon>
+                                                    Valider
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </md-content>
+
+                                <md-button class="md-primary" ng-click="addDescription()">
+                                    Ajouter
+                                </md-button>
+
+                            </md-content>
+                        </md-content>
 
 
 
-                <md-content layout="column" layout-align="center start" id="choix-localisation">
+                        <div style="max-height: 300px;overflow: scroll;overflow-x: hidden;">
+                            <md-data-table-container style="display: initial;">
+                                <table md-data-table class="md-primary" md-progress="deferred">
+                                    <thead>
+                                        <th class="customTH" name="Zone"></th>
+                                        <th class="customTH" name="Localisation"></th>
+                                        <th class="customTH" name="Position"></th>
+                                        <th class="customTH" name="Stade T"></th>
+                                        <th class="customTH" name="Stade N"></th>
+                                        <th class="customTH" name="Env."></th>
+                                        <th class="customTH" name="Env. gauche"></th>
+                                        <th class="customTH" name="Env. droit"></th>
+                                        <th class="customTH" name=""></th>
+                                    </thead>
 
-                    <md-toolbar>
-                        <div class="md-toolbar-tools">
-                            <h3>
-                                <span>Choix de la localisation</span>
-                            </h3>
+                                    <tbody>
+                                        <tr ng-repeat="description in descriptions" >
+                                            <td>{{description.zone.name}}</td>
+                                            <td>{{description.loca.name}}</td>
+                                            <td>{{description.position.name}}</td>
+                                            <td>{{description.stadeT.name}}</td>
+                                            <td>{{description.stadeN.name}}</td>
+                                            <td>{{description.env[0].isChecked}}</td>
+                                            <td>
+                                                <span ng-repeat="item in description.envG">
+                                                    <span ng-show="item.isChecked">{{item.name}}</span>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span ng-repeat="item in description.envD">
+                                                    <span ng-show="item.isChecked">{{item.name}}</span>
+                                                </span>
+                                            </td>
+                                            <td style="cursor: pointer;" ng-click="deleteDescription(description, $index)"><span class="glyphicon glyphicon-trash"></span></td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </md-data-table-container>
+
                         </div>
-                    </md-toolbar>
-
-                    <section layout="row" layout-sm="column" layout-fill layout-align="center center" layout-wrap>
-                        <md-button ng-click="addDescription()">Ajouter la description</md-button>
-                        <md-button ng-if="!isOkToAddDescription" ng-disabled="true" class="md-primary">Ajouter la description</md-button>
-                        <md-button class="md-primary" ng-click="goToPapaya()">Lancer le chargement des images</md-button>
-                        <md-content ng-if="!isOkToGoPapaya">
-                            <md-button ng-disabled="true" class="md-primary">Lancer le chargement des images</md-button>
-                        </md-content>
-
-                        <md-button class="md-warn" ng-click="closeOverlay()">Enlever toutes les images</md-button>
-                        <md-button ng-click="cancelChoice()">Annuler</md-button>
-                        <!--<div class="label">Flat</div>-->
-                    </section>
-
-
-
-
-                    <md-content layout="row" layout-fill layout-align="center start">
-                        <!--Debut premier etage-->
-                        <md-content>
-                            <md-radio-group ng-model="zoneValue">
-                                <md-subheader class="md-primary">
-                                    Zone
-                                </md-subheader>
-                                <p class="md-body-2 pDetail" ng-repeat="result in tabResults">
-                                    {{result.zone}}
-                                </p>
-
-
-                                <md-content layout="row" ng-repeat="zone in tabZones">
-                                    <md-radio-button class="md-primary" ng-value="zone.value" aria-label="{{ zone.name }}">
-                                        {{zone.name}}
-                                    </md-radio-button>
-                                </md-content>
-                            </md-radio-group>
-                        </md-content>
-
-
-
-                        <md-content layout="row" ng-repeat="zone in tabZones">
-                            <!--Debut deuxieme etage            -->
-                            <md-content layout="column" ng-if="zoneValue == zone.value">
-
-
-                                <!--<md-subheader class="md-warn" ng-if="!zone.localisations.length">-->
-                                <!--Aucune localisation-->
-                                <!--</md-subheader>-->
-                                <!--<md-content>-->
-                                <md-radio-group ng-model="zone.childValue">
-                                    <md-subheader class="md-primary" ><!--ng-if="zone.localisations.length"-->
-                                        Localisation
-                                    </md-subheader>
-                                    <p class="md-body-2 pDetail" ng-repeat="result in tabResults">
-                                        {{result.loca}}
-                                    </p>
-                                    <md-content layout="row" ng-repeat="loca in zone.localisations">
-                                        <md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">
-                                            {{loca.name}}
-                                        </md-radio-button>
-                                    </md-content>
-                                </md-radio-group>
-                                <!--</md-content>-->
-                            </md-content>
-                        </md-content>
-
-
-
-                        <md-content layout="row" ng-repeat="zone in tabZones" flex="45" ng-if="zoneValue == zone.value">
-                            <!--Debut deuxieme etage            -->
-                            <md-content layout="column"  flex>
-                                <md-content layout="row" ng-repeat="loca in zone.localisations">
-                                    <!--Debut troisieme etage                        -->
-                                    <md-content layout="column"  ng-if="loca.value == zone.childValue" layout-fill>
-                                        <md-content layout="row">
-                                            <md-content layout="column" ng-repeat="detail in loca.details" ng-if="detail.isRadioButton">
-                                                <md-radio-group ng-model="detail.value" ng-change="controlAffichage()">
-                                                    <md-subheader class="md-primary">
-                                                        {{detail.name}} : {{detail.value}}
-                                                    </md-subheader>
-                                                    <p layout-align="center center" ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail">
-                                                        <span>{{det.value}}</span>
-                                                    </p>
-
-                                                    <md-radio-button ng-repeat="item in detail.items" ng-value="item.value" aria-label="{{ item.name }}">
-                                                        {{item.name}}
-                                                    </md-radio-button>
-
-                                                </md-radio-group>
-                                            </md-content>
-
-                                            <md-content layout="column" ng-repeat="detail in loca.details" ng-if="!detail.isRadioButton">
-                                                <md-radio-group>
-                                                <md-subheader class="md-primary">
-                                                    {{detail.name}} : {{detail.value}}
-                                                </md-subheader>
-                                                <p ng-if="det.name == detail.name" ng-repeat="det in tabResultDetails" class="pDetail" layout-align="start start">
-                                                    <span>{{det.value}}</span>
-                                                    <md-button class="md-icon-button md-accent" aria-label="Favorite" ng-click="deleteDescription(det, $index)" style="float: right;">
-                                                        <span style="transform: scale(1.5);" ng-class="md-36" class="mdi mdi-delete"></span>
-                                                    </md-button>
-                                                </p>
-                                                <!--<md-content >-->
-                                                    <md-checkbox ng-repeat="item in detail.items" ng-if="item.ngIf" ng-model="item.isChecked" aria-label="{{ item.name }}">
-                                                        {{ item.name }}
-                                                    </md-checkbox>
-                                                </md-radio-group>
-                                                <!--</md-content>-->
-                                            </md-content>
-                                        </md-content>
-                                    </md-content>
-                                </md-content>
-                            </md-content>
-                        </md-content>
-
-                    </md-content>
-
-                </md-content>
-
-
-                <!--<md-content ng-repeat="zone in tabZones"  ng-if="zoneValue == zone.value">-->
-                <!--<md-radio-group ng-model="zone.childValue" ng-change="console.log(testValue)">-->
-                <!--<md-content layout="row" ng-repeat="loca in zone.localisations">-->
-                <!--<md-radio-button class="md-primary" ng-value="loca.value" aria-label="{{ loca.name }}">-->
-                <!--{{loca.name}}-->
-                <!--</md-radio-button>-->
-                <!--</md-content>-->
-                <!--</md-radio-group>-->
-                <!--</md-content>-->
-
-            </md-content>
-        </md-bottom-sheet>
+                        <md-content layout-fill layout-align="center center" ng-show="descriptions.length == 0">Il n'y a aucune description. Pour en ajouter, sélectionnez-en une et cliquez sur le bouton "ajouter".</md-content>
+                    </md-dialog-content>
+        </md-dialog>
     </script>
 </html>
