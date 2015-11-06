@@ -196,7 +196,12 @@
                                                     <span ng-show="item.isChecked">{{item.name}}</span>
                                                 </span>
                                             </td>
-                                            <td style="cursor: pointer;" ng-click="deleteDescription(description, $index)"><span class="glyphicon glyphicon-trash"></span></td>
+                                            <td style="cursor: pointer;" ng-click="deleteDescription(description, $index)">
+                                                <md-tooltip md-direction="right">
+                                                    Supprimer la description
+                                                </md-tooltip>
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </td>
                                         </tr>
 
                                     </tbody>
