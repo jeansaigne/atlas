@@ -2,6 +2,9 @@
 var globalCoord;
 var globalCoordTmp;
 
+
+
+
 var href = "";
 var tableauDescription = [];
 if(typeof document.location.href.split('?')[1] !== "undefined"){
@@ -504,7 +507,7 @@ jQuery(document).ready(function() {
 //Commandes de MC désactivés pour présentation
     //buildRTstruct("RTStruct.txt");
     //DeleteDoublon("mystruct");
-
+  //  papaya.Container.resetViewer(0, params);
     globalCoordTmp=0;
     params["images"] = ["ATLAS.nii.gz"];
     // //params["CRONOR.nii.gz"] = {"min": 1, "max": 106, "lut": "Spectrum", "alpha": 0.5};
@@ -539,7 +542,12 @@ jQuery(document).ready(function() {
         params["images"].push(phrase);
         params[phrase2] = {"min": 1, "max": 105, "lut": "Spectrum", "alpha": 0.5};
     }
-
+//setTimeout(function() {
+//    var imageParams = [];
+//    imageParams['CRONOR2.nii.gz'] = {"min": 1, "max": 105, "lut": "Spectrum", "alpha": 0.5};
+////    papaya.Container.removeImage(0, 1);
+//    papaya.Container.addImage(0, "CRONOR2.nii.gz", imageParams);
+//}, 5000);
     //Test pour désactiver l'affichage d'une ROI individuellement sur la label map
 //     if (ROIsSelected[0]){
 //         params["images"].push("Amygdale-T1T2T3T4-N0-envPANT.nii");

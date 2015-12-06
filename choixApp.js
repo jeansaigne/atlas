@@ -4,7 +4,7 @@
 
 var choixApp = angular.module('choixApp', ['ngMaterial', 'md.data.table']);
 
-choixApp.controller('buttonController', function($scope, $mdBottomSheet, $timeout, $rootScope, $mdDialog) {
+choixApp.controller('buttonController', function($scope, $mdBottomSheet, $timeout, $rootScope, $mdDialog, $http) {
 
     $rootScope.descriptions = [];
 
@@ -22,7 +22,7 @@ choixApp.controller('buttonController', function($scope, $mdBottomSheet, $timeou
     };
 });
 
-function ChoixCtrl($scope, $timeout, $mdBottomSheet, $rootScope, $mdDialog){
+function ChoixCtrl($scope, $timeout, $mdBottomSheet, $rootScope, $mdDialog, $http){
 
     $scope.descriptions = $rootScope.descriptions;
 
@@ -395,14 +395,25 @@ function ChoixCtrl($scope, $timeout, $mdBottomSheet, $rootScope, $mdDialog){
 
 
         if(isOk){
-            document.getElementById("File")["click"]();
-            if(document.getElementById("Open-"+newDescription.fileName+"0") != null){
-                document.getElementById("Open-"+newDescription.fileName+"0")["click"]();
-                $scope.descriptions.push(newDescription);
-            }else{
-                document.getElementById("File")["click"]();
-                alert("Nous sommes désolés mais la description demandée n'existe pas en base de données");
-            }
+
+            $scope.descriptions.push(newDescription);
+            //var paramsNew = {};
+            //paramsNew[newDescription.fileName + '.nii.gz'] = {'min': 1, 'max': 105, 'lut': 'Spectrum', 'alpha': 0.5};
+            //papayaContainers[0].viewer.loadImage(["./data/index.html?query=" + newDescription.fileName + ".nii.gz"], true);
+
+            //setTimeout(function() {
+
+            //}, 5000);
+
+            $http.get("./data/index.html?query=" + newDescription.fileName + '.nii.gz').then(function(result){
+                console.log(result);
+
+                var imageParams = [];
+                imageParams["index.php?query=" + newDescription.fileName + '.nii.gz'] = {"min": 1, "max": 105, "lut": "Spectrum", "alpha": 0.5};
+
+                papaya.Container.addImage(0, "./datagen/index.html?query=" + newDescription.fileName + '.nii.gz', imageParams);
+            });
+
         }
 
     };

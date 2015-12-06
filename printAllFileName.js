@@ -254,7 +254,9 @@ $scope.tabEnvBidon = [
     },{
         value : "true"
     }
-]
+];
+
+$scope.tabResult = [];
 
 $scope.tabZones.forEach(function(zone){
     if(zone.value === 'oropharynx'){
@@ -262,29 +264,44 @@ $scope.tabZones.forEach(function(zone){
             $scope.tabPositions.forEach(function(pos){
                 $scope.tabT.forEach(function(t){
                     $scope.tabN.forEach(function(n){
+                        var combi = zone.value + "_" + loca.value + "_" + pos.value + "_" + t.value + "_" + n.value;
+                        var exist = false;
+                        $scope.tabResult.forEach(function(result){
+                            if(result === combi){
+                                exist = true;
+                            }
+                        });
+                        if(!exist){
+                            $scope.tabResult.push(zone.value + "_" + loca.value + "_" + pos.value + "_" + t.value + "_" + n.value);
+                        }
+
+
+                        //console.log(zone.value + "_" + loca.value + "_" + pos.value + "_" + t.value + "_" + n.value);// + "_false_" + env1.value + "_"+ env2.value + "_"+ env3.value + "_"+ env4.value + "_"+ env5.value + "_"+ env6.value + "_"+ env7.value + "_"+ env8.value);
+
+
                         if(t.value === 'T1' && n.value === 'N0' && (loca.value === 'amygdale' || loca.value === 'pilierpost' || loca.value === 'pilierant' || loca.value === 'voile' || loca.value === 'sillon')){
 
-                            console.log(zone.value + "_" + loca.value + "_" + t.value + "_" + n.value + "_true_false_false_false_false_false_false_false_false" );
-                            console.log(zone.value + "_" + loca.value + "_" + t.value + "_" + n.value + "_false_false_false_false_false_false_false_false_false" );
+                            //console.log(zone.value + "_" + loca.value + "_" + t.value + "_" + n.value + "_true_false_false_false_false_false_false_false_false" );
+                            //console.log(zone.value + "_" + loca.value + "_" + t.value + "_" + n.value + "_false_false_false_false_false_false_false_false_false" );
                         }else{
 
-                            $scope.tabEnvBidon.forEach(function(env1){
-                                $scope.tabEnvBidon.forEach(function(env2){
-                                    $scope.tabEnvBidon.forEach(function(env3){
-                                        $scope.tabEnvBidon.forEach(function(env4){
-                                            $scope.tabEnvBidon.forEach(function(env5){
-                                                $scope.tabEnvBidon.forEach(function(env6){
-                                                    $scope.tabEnvBidon.forEach(function(env7){
-                                                        $scope.tabEnvBidon.forEach(function(env8){
-                                                            console.log(zone.value + "_" + loca.value + "_" + t.value + "_" + n.value + "_false_" + env1.value + "_"+ env2.value + "_"+ env3.value + "_"+ env4.value + "_"+ env5.value + "_"+ env6.value + "_"+ env7.value + "_"+ env8.value);
-                                                        });
-                                                    });
-                                                });
-                                            });
-                                        });
-                                    });
-                                });
-                            });
+                            //$scope.tabEnvBidon.forEach(function(env1){
+                            //    $scope.tabEnvBidon.forEach(function(env2){
+                            //        $scope.tabEnvBidon.forEach(function(env3){
+                            //            $scope.tabEnvBidon.forEach(function(env4){
+                            //                $scope.tabEnvBidon.forEach(function(env5){
+                            //                    $scope.tabEnvBidon.forEach(function(env6){
+                            //                        $scope.tabEnvBidon.forEach(function(env7){
+                            //                            $scope.tabEnvBidon.forEach(function(env8){
+                            //                                console.log(zone.value + "_" + loca.value + "_" + pos.value + "_" + t.value + "_" + n.value + "_false_" + env1.value + "_"+ env2.value + "_"+ env3.value + "_"+ env4.value + "_"+ env5.value + "_"+ env6.value + "_"+ env7.value + "_"+ env8.value);
+                            //                            });
+                            //                        });
+                            //                    });
+                            //                });
+                            //            });
+                            //        });
+                            //    });
+                            //});
 
                             //console.log(zone.value + "_" + loca.value + "_" + t.value + "_" + n.value + "_false_false_false_false_false_false_false_false_false" );
                             //console.log(zone.value + "_" + loca.value + "_" + t.value + "_" + n.value + "_false_false_false_false_false_false_false_false_true" );
@@ -314,4 +331,26 @@ $scope.tabZones.forEach(function(zone){
     }else if(zone.value === 'cavite-buccale'){
 
     }
+});
+
+//$scope.tabResult.forEach(function(result){
+//    console.log(result);
+//});
+
+$scope.tabEnvBidon.forEach(function(env1){
+    $scope.tabEnvBidon.forEach(function(env2){
+        $scope.tabEnvBidon.forEach(function(env3){
+            $scope.tabEnvBidon.forEach(function(env4){
+                $scope.tabEnvBidon.forEach(function(env5){
+                    $scope.tabEnvBidon.forEach(function(env6){
+                        $scope.tabEnvBidon.forEach(function(env7){
+                            $scope.tabEnvBidon.forEach(function(env8){
+                                console.log(env1.value + "_"+ env2.value + "_"+ env3.value + "_"+ env4.value + "_"+ env5.value + "_"+ env6.value + "_"+ env7.value + "_"+ env8.value);
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
 });
